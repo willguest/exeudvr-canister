@@ -15,7 +15,7 @@ Make sure that [Node.js](https://nodejs.org/en/) `>= 16` and [`dfx`](https://int
 Run the following commands in a new, empty project directory:
 
 ```sh
-npx degit rvanasa/vite-react-motoko # Download this starter project
+npx degit willguest/icvr-react # Download this starter project
 dfx start --clean --background # Run dfx in the background
 npm run setup # Install packages, deploy canisters, and generate type bindings
 
@@ -25,7 +25,7 @@ npm start # Start the development server
 When ready, run `dfx deploy --network ic` to deploy your application to the Internet Computer.
 
 ## 🛠️ Technology Stack
-
+- [ICVR](https://github.com/willguest/ICVR): Interactive, immersive Unity toolkit for the World Computer.
 - [Vite](https://vitejs.dev/): high-performance tooling for front-end web development
 - [React](https://reactjs.org/): a component-based UI library
 - [TypeScript](https://www.typescriptlang.org/): JavaScript extended with syntax for types
@@ -37,6 +37,7 @@ When ready, run `dfx deploy --network ic` to deploy your application to the Inte
 
 ## 📚 Documentation
 
+- [ICVR documentation](https://github.com/willguest/ICVR/tree/develop/Documentation)
 - [Vite developer docs](https://vitejs.dev/guide/)
 - [React quick start guide](https://react.dev/learn)
 - [Internet Computer docs](https://internetcomputer.org/docs/current/developer-docs/ic-overview)
