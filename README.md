@@ -1,4 +1,4 @@
-# Vite + React + Motoko
+# ICVR + React ++
 
 ### Get started directly in your browser:
 
