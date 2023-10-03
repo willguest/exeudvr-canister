@@ -26,10 +26,8 @@ When ready, run `dfx deploy --network ic` to deploy your application to the Inte
 
 ## 🛠️ Technology Stack
 - [ICVR](https://github.com/willguest/ICVR): Interactive, immersive Unity toolkit for the World Computer.
-- [Vite](https://vitejs.dev/): high-performance tooling for front-end web development
 - [React](https://reactjs.org/): a component-based UI library
 - [TypeScript](https://www.typescriptlang.org/): JavaScript extended with syntax for types
-- [Sass](https://sass-lang.com/): an extended syntax for CSS stylesheets
 - [Prettier](https://prettier.io/): code formatting for a wide range of supported languages
 - [Motoko](https://github.com/dfinity/motoko#readme): a safe and simple programming language for the Internet Computer
 - [Mops](https://mops.one): an on-chain community package manager for Motoko
@@ -38,7 +36,6 @@ When ready, run `dfx deploy --network ic` to deploy your application to the Inte
 ## 📚 Documentation
 
 - [ICVR documentation](https://github.com/willguest/ICVR/tree/develop/Documentation)
-- [Vite developer docs](https://vitejs.dev/guide/)
 - [React quick start guide](https://react.dev/learn)
 - [Internet Computer docs](https://internetcomputer.org/docs/current/developer-docs/ic-overview)
 - [`dfx.json` reference schema](https://internetcomputer.org/docs/current/references/dfx-json-reference/)
