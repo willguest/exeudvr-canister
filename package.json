@@ -5,16 +5,14 @@
   "type": "module",
   "scripts": {
     "setup": "npm i && dfx canister create backend && dfx generate backend",
-    "prebuild": "npm run copy:types",
     "start": "run-p backend && webpack serve --mode development --env development",
     "backend": "mo-dev --generate --deploy -y",
-    "build": "tsc && webpack",
+    "build": "webpack",
     "test": "run-s test:backend",
     "test:backend": "mo-test",
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\" \"backend/**/*.mo\"",
     "sources": "mops sources",
-    "postinstall": "mops install",
-    "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --exclude='*.most' --delete src/declarations"
+    "postinstall": "mops install"
   },
   "devDependencies": {
     "@dfinity/agent": "^0.19.2",
@@ -55,6 +53,12 @@
   "engines": {
     "node": "^12 || ^14 || ^16 || ^18"
   },
+  "browserslist": [
+    "last 2 chrome version",
+    "last 2 firefox version",
+    "last 2 safari version",
+    "last 2 edge version"
+  ],
   "dependencies": {
     "@dfinity/identity": "^0.19.3",
     "@types/react-router-dom": "^5.3.3",
