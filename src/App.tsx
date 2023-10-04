@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import motokoLogo from './assets/motoko_moving.png';
+import motokoLogo from './assets/motoko_moving.png'; 
 import motokoShadowLogo from './assets/motoko_shadow.png';
 import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
 import { backend } from './declarations/backend';
 
 function App() {
@@ -42,9 +41,6 @@ function App() {
   return (
     <div className="App">
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo vite" alt="Vite logo" />
-        </a>
         <a href="https://reactjs.org" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
@@ -62,7 +58,7 @@ function App() {
           </span>
         </a>
       </div>
-      <h1>Vite + React + Motoko</h1>
+      <h1>ICVR + React</h1>
       <div className="card">
         <button onClick={increment} style={{ opacity: loading ? 0.5 : 1 }}>
           count is {count}
@@ -72,7 +68,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite, React, and Motoko logos to learn more
+        Click on the React, and Motoko logos to learn more
       </p>
     </div>
   );
