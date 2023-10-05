@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const { debug } = require("console");
 
 let localCanisters, prodCanisters, canisters;
 
@@ -28,10 +29,9 @@ function initCanisterEnv() {
     (process.env.NODE_ENV === "production" ? "ic" : "local");
 
   canisters = network === "local" ? localCanisters : prodCanisters;
-
   return Object.entries(canisters).reduce((prev, current) => {
     const [canisterName, canisterDetails] = current;
-    prev[canisterName.toUpperCase() + "_CANISTER_ID"] =
+    prev["CANISTER_ID_" + canisterName.toUpperCase()] =
       canisterDetails[network];
     return prev;
   }, {});
@@ -45,9 +45,7 @@ module.exports = {
   target: "web",
   mode: isDevelopment ? "development" : "production",
   entry: {
-    // The frontend.entrypoint points to the HTML file for this build, so we need
-    // to replace the extension to `.jsx`.
-    index: path.join(__dirname, frontend_entry).replace(/\.html$/, ".tsx"),
+    index: path.join(__dirname, "src", "main.tsx"),
   },
   devtool: isDevelopment ? "source-map" : false,
   optimization: {
@@ -86,14 +84,11 @@ module.exports = {
       template: path.join(__dirname, frontend_entry),
       cache: false,
     }),
-    /*
-	new webpack.EnvironmentPlugin({
-      NODE_ENV: "production",
-      ISLANDBOWLING_BACKEND_CANISTER_ID: canisters["IslandBowling_backend"],
-      ISLANDBOWLING_FRONTEND_CANISTER_ID: canisters["IslandBowling_frontend"],
-      LOCAL_II_CANISTER: "http://localhost:8000/?canisterId=rrkah-fqaaa-aaaaa-aaaaq-cai"
+	  new webpack.EnvironmentPlugin({
+      CANISTER_ID_BACKEND: canisters["backend"],
+      CANISTER_ID_FRONTEND: canisters["frontend"],
+      LOCAL_II_CANISTER: "http://localhost:4943/?canisterId=rrkah-fqaaa-aaaaa-aaaaq-cai"
     }),
-    */
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],
       process: require.resolve("process/browser"),
@@ -103,7 +98,7 @@ module.exports = {
   devServer: {
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:8000",
+        target: "http://127.0.0.1:4943",
         changeOrigin: true,
         pathRewrite: {
           "^/api": "/api",
