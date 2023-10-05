@@ -7,10 +7,7 @@
     "frontend": {
       "dependencies": ["backend"],
       "type": "assets",
-      "source": ["src/assets", "dist/"],
-      "frontend": {
-        "entrypoint": "src/index.html"
-      }
+      "source": ["src/assets", "dist/"]
     }
   },
   "defaults": {
@@ -18,7 +15,6 @@
       "packtool": "npm run --silent sources"
     }
   },
-  "dfx": "0.15.0",
   "networks": {
     "local": {
       "bind": "127.0.0.1:4943",
