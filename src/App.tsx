@@ -1,77 +1,60 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import motokoLogo from './assets/motoko_moving.png'; 
-import motokoShadowLogo from './assets/motoko_shadow.png';
-import reactLogo from './assets/react.png';
-import { backend } from './declarations/backend';
+import { Fragment } from "react";
+import { useEffect, useState } from "react";
+import Unity, { UnityContext  } from "react-unity-webgl";
 
-function App() {
-  const [count, setCount] = useState<number | undefined>();
-  const [loading, setLoading] = useState(false);
+import LoadingScreen from './components/LoadingScreen';
+import * as UnityContextUtils from './utils/UnityContextUtils';
+import { useAuth } from "./auth/auth";
 
-  // Get the current counter value
-  const fetchCount = async () => {
-    try {
-      setLoading(true);
-      const count = await backend.get();
-      setCount(+count.toString()); // Convert BigInt to number
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+const unityContext = new UnityContext({
+  loaderUrl: "Build/unity_build.loader.js",
+  dataUrl: "Build/unity_build.data",
+  frameworkUrl: "Build/unity_build.framework.js",
+  codeUrl: "Build/unity_build.wasm",
+  streamingAssetsUrl: "StreamingAssets",
+  companyName: "ICVR",
+  productName: "ICVR Template",
+  productVersion: "0.1",
+});
 
-  const increment = async () => {
-    if (loading) return; // Cancel if waiting for a new count
-    try {
-      setLoading(true);
-      await backend.inc(); // Increment the count by 1
-      await fetchCount(); // Fetch the new count
-    } finally {
-      setLoading(false);
-    }
-  };
+const App = () => {
+	const [progression, setProgression] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const auth = useAuth();
 
-  // Fetch the count on page load
+  function handleLoaded() {
+    setIsLoaded(true);
+  }
+
+  function handleProgress() {
+    setProgression(Math.round(progression * 100));
+  }
+
   useEffect(() => {
-    fetchCount();
-  }, []);
+    window.addEventListener('loaded', handleLoaded);
+    return () => {
+      window.removeEventListener("loaded", handleLoaded); 
+  };
+  }, [Unity]);
 
-  return (
-    <div className="App">
+  useEffect(() => {
+    window.addEventListener('progress', handleProgress);
+    return () => {
+      window.removeEventListener("progress", handleProgress); 
+  };
+  }, [Unity]);
+
+	
+	UnityContextUtils.AddUnityListeners(unityContext, auth);
+	
+    return (
       <div>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a
-          href="https://internetcomputer.org/docs/current/developer-docs/build/cdks/motoko-dfinity/motoko/"
-          target="_blank"
-        >
-          <span className="logo-stack">
-            <img
-              src={motokoShadowLogo}
-              className="logo motoko-shadow"
-              alt="Motoko logo"
-            />
-            <img src={motokoLogo} className="logo motoko" alt="Motoko logo" />
-          </span>
-        </a>
+        {!isLoaded && <LoadingScreen value={progression}/>}
+		    <Unity unityContext={unityContext} devicePixelRatio={1}
+			  style={{height: "100%", width: "100%", 
+        position: "absolute", overflow: "hidden"}}/>
       </div>
-      <h1>ICVR + React</h1>
-      <div className="card">
-        <button onClick={increment} style={{ opacity: loading ? 0.5 : 1 }}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>backend/Backend.mo</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the React, and Motoko logos to learn more
-      </p>
-    </div>
-  );
+    );
 }
 
 export default App;

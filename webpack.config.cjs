@@ -45,7 +45,7 @@ module.exports = {
   target: "web",
   mode: isDevelopment ? "development" : "production",
   entry: {
-    index: path.join(__dirname, "src", "main.tsx"),
+    index: path.join(__dirname, "src", "index.html").replace(/\.html$/, ".tsx"),
   },
   devtool: isDevelopment ? "source-map" : false,
   optimization: {
@@ -87,7 +87,7 @@ module.exports = {
 	  new webpack.EnvironmentPlugin({
       CANISTER_ID_BACKEND: canisters["backend"],
       CANISTER_ID_FRONTEND: canisters["frontend"],
-      LOCAL_II_CANISTER: "http://localhost:4943/?canisterId=rrkah-fqaaa-aaaaa-aaaaq-cai"
+      CANISTER_ID_INTERNET_IDENTITY: ["http://localhost:4943/?canisterId=r7inp-6aaaa-aaaaa-aaabq-cai"]
     }),
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],

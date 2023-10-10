@@ -63,7 +63,6 @@
   ],
   "dependencies": {
     "@dfinity/identity": "^0.19.3",
-    "@types/react-router-dom": "^5.3.3",
     "decompress": "^4.2.1",
     "decompress-unzip": "^4.0.1",
     "local-storage": "^2.0.0",
@@ -72,7 +71,7 @@
     "react-dom": "^18.2.0",
     "react-loading-icons": "^1.1.0",
     "react-router-dom": "^6.16.0",
-    "react-unity-webgl": "^9.4.3",
+    "react-unity-webgl": "^8.8.0",
     "redux": "^4.2.1",
     "wasm-opt": "^1.4.0"
   }
