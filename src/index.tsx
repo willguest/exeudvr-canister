@@ -1,6 +1,4 @@
 import { createRoot } from 'react-dom/client';
-//import { ProvideAuth } from "./auth/auth";
-
 import App from './App';
 import { ProvideAuth } from './auth/auth';
 

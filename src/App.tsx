@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useEffect, useState } from "react";
 import Unity, { UnityContext  } from "react-unity-webgl";
 
