@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+
 const CopyPlugin = require("copy-webpack-plugin");
 
 let localCanisters, prodCanisters, canisters;
@@ -99,7 +100,7 @@ module.exports = {
       process: require.resolve("process/browser"),
     }),
   ],
-  // proxy /api to port 8000 during development
+  // proxy /api to port 4943 during development
   devServer: {
     proxy: {
       "/api": {
