@@ -1,14 +1,11 @@
-import { createRoot } from 'react-dom/client';
-import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { ProvideAuth } from './auth/auth';
+import App from './App';
 
-function ICVRApp() {
-	
-  return (
-    <ProvideAuth>
-      <App />
-    </ProvideAuth>
-  );
-}
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <ProvideAuth>
+  <App />
+</ProvideAuth>
+);
 
-createRoot(document.getElementById('root')).render(<ICVRApp />);

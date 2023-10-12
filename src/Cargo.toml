@@ -1,0 +1,8 @@
+[workspace]
+members = [
+	"src/utils/didjs",
+]
+
+[profile.release]
+lto = true
+opt-level = 'z'

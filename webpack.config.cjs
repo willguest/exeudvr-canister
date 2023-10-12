@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+
 const CopyPlugin = require("copy-webpack-plugin");
 const { debug } = require("console");
 
@@ -87,14 +88,14 @@ module.exports = {
 	  new webpack.EnvironmentPlugin({
       CANISTER_ID_BACKEND: canisters["backend"],
       CANISTER_ID_FRONTEND: canisters["frontend"],
-      CANISTER_ID_INTERNET_IDENTITY: ["http://localhost:4943/?canisterId=r7inp-6aaaa-aaaaa-aaabq-cai"]
+      CANISTER_ID_INTERNET_IDENTITY: ["http://127.0.0.1:4943/?canisterId=r7inp-6aaaa-aaaaa-aaabq-cai"]
     }),
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],
       process: require.resolve("process/browser"),
     }),
   ],
-  // proxy /api to port 8000 during development
+  // proxy /api to port 4943 during development
   devServer: {
     proxy: {
       "/api": {

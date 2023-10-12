@@ -6,7 +6,6 @@
       "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz",
       "shrink": false,
       "remote": {
-        "candid": "internet_identity.did",
           "id": {
             "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
           }

@@ -1,4 +1,4 @@
-import { HttpAgent, Identity } from "@dfinity/agent";
+import { HttpAgent } from "@dfinity/agent";
 import { createTokenActor } from "../token/index.js"
 
 export async function GetCoin(cbIndex, unityContext, auth) {

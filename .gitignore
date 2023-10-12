@@ -41,6 +41,8 @@ Cargo.lock
 .env.development
 .env.test
 .env.production
+
+# Build files (to be added from Unity)
 src/assets/Build/unity_build.data
 src/assets/Build/unity_build.framework.js
 src/assets/Build/unity_build.wasm
