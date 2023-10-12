@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "description": "Open VR on the Internet Computer",
   "scripts": {
-<<<<<<< HEAD
+
     "check-dfx": "node src/scripts/check-dfx.js",
     "presetup": "sudo apt-get update && sudo apt-get install -y inotify-tools jq && npm run check-dfx",
     "setup": "npm i && dfx deps pull && dfx canister create backend && dfx generate backend && dfx canister create frontend",
@@ -18,15 +18,12 @@
     "test": "npm run test:backend && npm run test:frontend",
     "test:backend": "",
     "test:frontend": "",
-=======
-    "setup": "npm i && dfx canister create backend && dfx generate backend && dfx generate frontend",
     "build": "webpack",
     "start": "run-p backend frontend",
     "backend": "mo-dev --generate --deploy -y",
     "frontend": "webpack serve --mode development --env development",
     "test": "run-s test:backend",
     "test:backend": "mo-test",
->>>>>>> 4820e01 (webpack integration, didjs)
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\" \"backend/**/*.mo\"",
     "sources": "mops sources",
     "postinstall": "mops install"
@@ -102,11 +99,8 @@
     "react-unity-webgl": "8.8.0",
     "redux": "^4.2.1",
     "rsync": "^0.6.1",
-<<<<<<< HEAD
     "rustup": "^1.0.10",
     "styled-components": "^6.0.9",
-=======
->>>>>>> 4820e01 (webpack integration, didjs)
     "wasm-opt": "^1.4.0"
   }
 }

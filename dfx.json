@@ -9,7 +9,7 @@
       "main": "backend/Backend.mo"
     },
     "frontend": {
-      "dependencies": ["backend"],
+      "dependencies": ["backend", "internet_identity"],
       "type": "assets",
       "frontend": {
         "entrypoint": "src/index.html"

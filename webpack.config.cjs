@@ -87,12 +87,10 @@ module.exports = {
       template: path.join(__dirname, frontend_entry),
       cache: false,
     }),
-    /*
-	new webpack.EnvironmentPlugin({
-      NODE_ENV: "production",
-      ISLANDBOWLING_BACKEND_CANISTER_ID: canisters["IslandBowling_backend"],
-      ISLANDBOWLING_FRONTEND_CANISTER_ID: canisters["IslandBowling_frontend"],
-      LOCAL_II_CANISTER: "http://localhost:8000/?canisterId=rrkah-fqaaa-aaaaa-aaaaq-cai"
+	  new webpack.EnvironmentPlugin({
+      CANISTER_ID_BACKEND: canisters["backend"],
+      CANISTER_ID_FRONTEND: canisters["frontend"],
+      CANISTER_ID_INTERNET_IDENTITY: ["http://localhost:4943/?canisterId=rdmx6-jaaaa-aaaaa-aaadq-cai"]
     }),
     */
     new webpack.ProvidePlugin({
