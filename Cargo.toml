@@ -1,15 +1,8 @@
-[package]
-name = "didjs"
-version = "0.1.0"
-edition = "2018"
+[workspace]
+members = [
+	"src/utils/didjs",
+]
 
-[lib]
-path = "lib.rs"
-staticlib = ["cdylib"]
-
-[dependencies]
-candid = "0.8.0"
-ic-cdk = "0.6.1"
-ic-cdk-macros = "0.6.1"
-serde = { version = "1.0.111", features = ["derive"] }
-serde_bytes = "0.11"
+[profile.release]
+lto = true
+opt-level = 'z'

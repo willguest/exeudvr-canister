@@ -88,7 +88,7 @@ module.exports = {
 	  new webpack.EnvironmentPlugin({
       CANISTER_ID_BACKEND: canisters["backend"],
       CANISTER_ID_FRONTEND: canisters["frontend"],
-      CANISTER_ID_INTERNET_IDENTITY: ["http://127.0.0.1:4943/?canisterId=r7inp-6aaaa-aaaaa-aaabq-cai"]
+      CANISTER_ID_INTERNET_IDENTITY: ["http://localhost:4943/?canisterId=rdmx6-jaaaa-aaaaa-aaadq-cai"]
     }),
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],

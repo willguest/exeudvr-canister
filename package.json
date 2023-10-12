@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "setup": "npm i && dfx canister create backend && dfx generate backend && dfx generate frontend",
+    "setup": "npm i && dfx deps pull && dfx canister create frontend && dfx canister create backend && dfx generate frontend",
     "build": "webpack",
     "start": "run-p backend frontend",
     "backend": "mo-dev --generate --deploy -y",
@@ -53,7 +53,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "engines": {
-    "node": "^12 || ^14 || ^16 || ^18"
+    "node": "^12 || ^14 || ^16 || ^18 || ^20"
   },
   "browserslist": [
     "last 2 chrome version",
@@ -66,6 +66,7 @@
     "decompress": "^4.2.1",
     "decompress-unzip": "^4.0.1",
     "local-storage": "^2.0.0",
+    "node": "^20.7.0",
     "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
