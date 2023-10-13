@@ -1,4 +1,4 @@
-/// <reference types="node" />
+/// <reference types="" />
 declare module "*.png";
 declare module "*.svg";
 declare module "*.jpeg";

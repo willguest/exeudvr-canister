@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "outDir": "dist",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
@@ -17,7 +18,7 @@
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "types": ["node"]
+    "types": []
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-
 const CopyPlugin = require("copy-webpack-plugin");
 const { debug } = require("console");
 
@@ -46,7 +45,8 @@ module.exports = {
   target: "web",
   mode: isDevelopment ? "development" : "production",
   entry: {
-    index: path.join(__dirname, "src", "index.html").replace(/\.html$/, ".tsx"),
+    index: path.join(__dirname, "src", "index.html").replace(/\.html$/, ".jsx"),
+    //"mylib": path.resolve(__dirname, 'src/App.tsx'),
   },
   devtool: isDevelopment ? "source-map" : false,
   optimization: {
@@ -75,7 +75,7 @@ module.exports = {
   // tutorial, uncomment the following lines:
   module: {
     rules: [
-    { test: /\.(ts|tsx|jsx)$/, loader: "ts-loader" },
+    { test: /\.(ts|tsx|jsx)$/, exclude: [/node_modules/], loader: "ts-loader" },
     { test: /\.(css|scss)$/, use: ['style-loader','css-loader'] },
     { test: /\.(png|jpg|jpeg|gif)$/i, type: "asset/resource", }
     ],

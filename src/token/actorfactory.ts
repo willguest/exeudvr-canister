@@ -33,11 +33,4 @@ export const createExtendedActorClass = (
   return ExtendedActor;
 };
 
-export function generateActor<T>({ agent, canisterId, IDL }: { agent: HttpAgent, canisterId: string, IDL }): ActorSubclass<T> {
-  return Actor.createActor<T>(IDL, {
-    agent,
-    canisterId: Principal.fromText(canisterId),
-  });
-}
-
-export default { createExtendedActorClass, generateActor };
+export default { createExtendedActorClass };

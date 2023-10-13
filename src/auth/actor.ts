@@ -20,7 +20,7 @@ const host = getHost();
 function createActor(identity?: Identity) {
   const agent = new HttpAgent({
 	     identity,
-	     host: window.location.href.includes('localhost') ? 'http://127.0.0.1:8000' : undefined,
+	     host: window.location.href.includes('localhost') ? 'http://127.0.0.1:4943' : undefined,
        });
   const actor = Actor.createActor<_SERVICE>(idlFactory, {
     agent,

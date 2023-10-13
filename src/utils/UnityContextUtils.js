@@ -9,7 +9,7 @@ export function AddUnityListeners(unityContext, auth) {
 	});
 	
 	unityContext.on("GetCoin", async function (cbIndex) {
-		await TokenUtils.GetCoin(cbIndex, unityContext, auth);
+		//await TokenUtils.GetCoin(cbIndex, unityContext, auth);
 	});
 	
 }

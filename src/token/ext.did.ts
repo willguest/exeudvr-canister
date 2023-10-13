@@ -1,4 +1,4 @@
-export const idlFactory = ({ IDL }) => {
+export default ({ IDL }) => {
     const TokenIndex = IDL.Nat32;
     const AccountIdentifier = IDL.Text;
     const TokenIdentifier = IDL.Text;
@@ -84,4 +84,6 @@ export const idlFactory = ({ IDL }) => {
         supply: IDL.Func([TokenIdentifier], [SupplyResult], ['query']),
     });
 };
-export const init = ({ IDL }) => { return []; };
+export const init = _arg => {
+    return [];
+  };

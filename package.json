@@ -2,7 +2,7 @@
   "name": "icvr-react",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "description": "Open VR on the Internet Computer",
   "scripts": {
     "setup": "npm i && dfx deps pull && dfx canister create frontend && dfx canister create backend && dfx generate frontend",
     "build": "webpack",
@@ -23,14 +23,18 @@
     "@dfinity/principal": "^0.19.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/node": "^20.8.5",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "@types/webpack": "^5.28.3",
     "@vitejs/plugin-react": "^4.0.1",
     "assert": "^2.1.0",
     "buffer": "^6.0.3",
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "cross-fetch": "^3.1.6",
     "css-loader": "^6.8.1",
+    "declaration-bundler-webpack-plugin": "^1.0.3",
     "dotenv": "^16.3.1",
     "events": "3.3.0",
     "html-webpack-plugin": "^5.5.3",
@@ -44,13 +48,14 @@
     "stream-browserify": "3.0.0",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.3",
-    "ts-loader": "^9.4.4",
+    "ts-loader": "^9.5.0",
     "typescript": "^5.2.2",
     "url-loader": "^4.1.1",
     "util": "0.12.5",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "wepack-cli": "^0.0.1-security"
   },
   "engines": {
     "node": "^12 || ^14 || ^16 || ^18 || ^20"
@@ -63,18 +68,21 @@
   ],
   "dependencies": {
     "@dfinity/identity": "^0.19.3",
+    "cargo": "^0.8.0",
     "decompress": "^4.2.1",
     "decompress-unzip": "^4.0.1",
     "local-storage": "^2.0.0",
     "node": "^20.7.0",
     "node-fetch": "^3.3.2",
+    "nvm": "^0.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loading-icons": "^1.1.0",
     "react-router-dom": "^6.16.0",
-    "react-unity-webgl": "^8.8.0",
+    "react-unity-webgl": "^9.4.3",
     "redux": "^4.2.1",
     "rsync": "^0.6.1",
+    "rustup": "^1.0.10",
     "wasm-opt": "^1.4.0"
   }
 }
