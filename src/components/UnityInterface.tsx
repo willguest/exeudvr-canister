@@ -3,7 +3,7 @@ import Unity, { IUnityConfig, UnityContext } from "react-unity-webgl";
 import AddUnityFunctions from "../unity/UnityFunctions";
 
 
-const defaultUnityConfig = {
+const defaultUnityContext = new UnityContext({
 	loaderUrl: "Build/unity_build.loader.js",
 	dataUrl: "Build/unity_build.data",
 	frameworkUrl: "Build/unity_build.framework.js",
@@ -12,7 +12,7 @@ const defaultUnityConfig = {
 	companyName: "ICVR",
 	productName: "ICVR Template",
 	productVersion: "0.1.0",
-}
+});
 
 type UnityProviderProps = {
 	children: React.ReactElement;
@@ -26,18 +26,16 @@ progression: number
 }
 
 export const unityInterface = createContext<UnityInterface>({
-	contextConfig: defaultUnityConfig,
-	unityContext: new UnityContext(defaultUnityConfig),
+	contextConfig: null,
+	unityContext: defaultUnityContext,
 	isLoaded: false,
 	progression: 0
 })
 
-function useUnityInterface(unityConfig): UnityInterface {
-	const [contextConfig, setcontextConfig] = useState<IUnityConfig | undefined>(defaultUnityConfig);
+function useUnityInterface(unityContext): UnityInterface {
+	const [contextConfig, setcontextConfig] = useState<IUnityConfig | undefined>();
 	const [progression, setProgression] = useState(0);
   	const [isLoaded, setIsLoaded] = useState(false);
-
-	const unityContext = new UnityContext(unityConfig);
 
 	useEffect(function () {
       unityContext.on("progress", function (progression) {
@@ -76,7 +74,7 @@ export const AppWindowInternal: React.FC<UnityContextProps> = ({ unityContext })
 
 export const UnityProvider = (props: UnityProviderProps) => {
 	const { children } = props;	  
-	const unity = useUnityInterface(defaultUnityConfig);
+	const unity = useUnityInterface(defaultUnityContext);
 	return <unityInterface.Provider value={unity}>{children}</unityInterface.Provider>;
 }
 

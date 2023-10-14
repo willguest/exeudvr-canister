@@ -24,16 +24,14 @@ interface tokenResponse {
 export default function AddUnityFunctions(unityContext) {
 	
     const auth = useAuth();
-
-    // alternative pattern
-	/*
+	
     unityContext.on("ICLogin", async function (cbIndex) {
-		await CanisterUtils.ICLogin(cbIndex, unityContext, auth);
+		await IILogin(cbIndex, unityContext, auth);
 	});
-    */
+    
 
 	// automate with construct(inputHandle: string, functionName: string)
-    
+    /*
 	async function handleLogin(cbIndex){
 		await IILogin(cbIndex, unityContext, auth);
 	};
@@ -66,7 +64,7 @@ export default function AddUnityFunctions(unityContext) {
 			removeEventListener("GetToken", handleGetToken);
 		};
 	}, [addEventListener, removeEventListener, handleGetToken]);
-
+	*/
 }
     
 async function IILogin(cbIndex, ctx, auth) { 
@@ -115,7 +113,6 @@ async function IILogout(cbIndex, unityContext, auth) {
 
 
 async function GetToken(cbIndex, sendMessage, auth) {
-    
 	try{
 		const agent = new HttpAgent(auth.identity);
 		const tokenActor = createTokenActor(agent);
