@@ -79,17 +79,17 @@ async function IILogin(cbIndex, ctx, auth) {
         }
 
 		data.cbindex = cbIndex;
-		if (auth.isAuthReady){
+		if (auth.isAuthReady && 
+			auth.identity &&
+			!auth.identity.getPrincipal().isAnonymous()){
 			data.principal = auth.identity.getPrincipal().toString();
 			data.result = true;
-			console.log("Using stored principal: " + auth.identity.getPrincipal());
 		}
 		else{
 			const identity: Identity = await auth?.logIn();
 			const principal = identity.getPrincipal();
 			data.principal = principal.toString();
 			data.result = auth?.isAuthReady;
-			console.log("Login completed: " + auth.identity.getPrincipal());
 		}
 		data.accountId = "";
 		const sendStr = JSON.stringify(data);
