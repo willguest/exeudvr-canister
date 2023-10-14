@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { UnityContext } from "react-unity-webgl";
+import Unity, { IUnityConfig, UnityContext } from "react-unity-webgl";
 import AddUnityFunctions from "../unity/UnityFunctions";
 
 
-const defaultUnityContext = new UnityContext({
+const defaultUnityConfig = {
 	loaderUrl: "Build/unity_build.loader.js",
 	dataUrl: "Build/unity_build.data",
 	frameworkUrl: "Build/unity_build.framework.js",
@@ -12,39 +12,32 @@ const defaultUnityContext = new UnityContext({
 	companyName: "ICVR",
 	productName: "ICVR Template",
 	productVersion: "0.1.0",
-  });
+}
 
 type UnityProviderProps = {
 	children: React.ReactElement;
-};
-
-type ContextData = {
-	loaderUrl: string;
-	dataUrl: string;
-	frameworkUrl: string;
-	codeUrl: string;
-	streamingAssetsUrl: string;
-	companyName: string;
-	productName: string;
-	productVersion: string;
-};
+}
   
-export interface UnityInterface {
+interface UnityInterface {
+contextConfig: IUnityConfig,
 unityContext: UnityContext,
 isLoaded: boolean,
 progression: number
 }
 
 export const unityInterface = createContext<UnityInterface>({
-	unityContext: defaultUnityContext,
+	contextConfig: defaultUnityConfig,
+	unityContext: new UnityContext(defaultUnityConfig),
 	isLoaded: false,
 	progression: 0
 })
 
-function useUnityInterface(unityContext): UnityInterface {
-
+function useUnityInterface(unityConfig): UnityInterface {
+	const [contextConfig, setcontextConfig] = useState<IUnityConfig | undefined>(defaultUnityConfig);
 	const [progression, setProgression] = useState(0);
   	const [isLoaded, setIsLoaded] = useState(false);
+
+	const unityContext = new UnityContext(unityConfig);
 
 	useEffect(function () {
       unityContext.on("progress", function (progression) {
@@ -61,15 +54,29 @@ function useUnityInterface(unityContext): UnityInterface {
 	AddUnityFunctions(unityContext);
 	
 	return {
+		contextConfig,
 		unityContext,
 		isLoaded,
 		progression
-	  };
+	  }
+}
+
+interface UnityContextProps {
+    unityContext: UnityContext
+}
+
+export const AppWindowInternal: React.FC<UnityContextProps> = ({ unityContext }) => {
+	return (
+		<Unity unityContext={unityContext} devicePixelRatio={1}
+				style={{height: "100%", width: "100%", 
+				position: "absolute", overflow: "hidden",
+				margin: 0}}/>
+	  );
 }
 
 export const UnityProvider = (props: UnityProviderProps) => {
 	const { children } = props;	  
-	const unity = useUnityInterface(defaultUnityContext);
+	const unity = useUnityInterface(defaultUnityConfig);
 	return <unityInterface.Provider value={unity}>{children}</unityInterface.Provider>;
 }
 

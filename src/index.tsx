@@ -3,7 +3,7 @@ import React from 'react';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './auth/auth';
-import { UnityProvider } from './utils/UnityInterface';
+import { UnityProvider } from './components/UnityInterface';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
