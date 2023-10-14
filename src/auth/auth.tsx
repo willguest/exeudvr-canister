@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { authClient as authenticationClient } from "./authClient";
-import { Principal } from "@dfinity/principal";
 import { actorController } from "./actor";
 import { Identity } from "@dfinity/agent";
 
@@ -13,8 +12,14 @@ export interface AuthContext {
   logOut: () => void;
 }
 
+type AuthContextProps = {
+	children: React.ReactElement;
+};
+
+
 // Provider hook that creates auth object and handles state
 export function useProvideAuth(authClient): AuthContext {
+  
   const [isAuthenticatedLocal, setIsAuthenticatedLocal] = useState<boolean>(
     false
   );
@@ -22,6 +27,7 @@ export function useProvideAuth(authClient): AuthContext {
   const [isAuthClientReady, setAuthClientReady] = useState(false);
   const [urlWithSearch] = useState<string>(globalThis.location.search);
 
+  
   // Creating the auth client is async and no auth related checks can happen
   // until it's ready so we set a state variable to keep track of it
   if (!authClient.ready) {
@@ -60,13 +66,12 @@ export function useProvideAuth(authClient): AuthContext {
   const identity = _identity;
   const isAuthenticated = isAuthenticatedLocal;
 
-  const logIn = async function (): Promise<Principal | undefined> {
-    await authClient.login();
+  const logIn = async function (): Promise<Identity | undefined> {
     const identity = await authClient.getIdentity();
     if (identity) {
       setIsAuthenticatedLocal(true);
       _setIdentity(identity);
-	    return identity.getPrincipal();
+	    return identity;
     } else {
       console.error("Could not get identity from II");
     }
@@ -88,9 +93,10 @@ export function useProvideAuth(authClient): AuthContext {
   };
 }
 
-const authContext = createContext<AuthContext>(null!);
+const authContext = createContext<AuthContext | null>(null!);
 
-export function ProvideAuth({ children }) {
+export const AuthProvider = (props: AuthContextProps) => {
+	const { children } = props;	  
   const auth = useProvideAuth(authenticationClient);
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }

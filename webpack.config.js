@@ -45,7 +45,7 @@ module.exports = {
   target: "web",
   mode: isDevelopment ? "development" : "production",
   entry: {
-    index: path.join(__dirname, "src", "index.html").replace(/\.html$/, ".jsx"),
+    index: path.join(__dirname, "src", "index.html").replace(/\.html$/, ".tsx"),
     //"mylib": path.resolve(__dirname, 'src/App.tsx'),
   },
   devtool: isDevelopment ? "source-map" : false,

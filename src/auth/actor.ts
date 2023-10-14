@@ -6,17 +6,6 @@ import { idlFactory } from  '../declarations/backend';
 const isLocalEnv = process.env.NODE_ENV !== "production";
 const canisterId = process.env.CANISTER_ID_BACKEND;
 
-/*
-function getHost() {
-  // Setting host to undefined will default to the window location 👍🏻
-  //return isLocalEnv ? dfxConfig.networks.local.bind : undefined;
-  //return isLocalEnv ? 'http://127.0.0.1:8000?canisterId=rkp4c-7iaaa-aaaaa-aaaca-cai' : 'https://identity.ic0.app';
-  return window.location.href.includes('localhost') ? 'http://127.0.0.1:8000?canisterId=rkp4c-7iaaa-aaaaa-aaaca-cai' : 'https://identity.ic0.app';
-}
-
-const host = getHost();
-*/
-
 function createActor(identity?: Identity) {
   const agent = new HttpAgent({
 	     identity,
