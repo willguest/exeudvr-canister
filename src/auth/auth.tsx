@@ -53,7 +53,6 @@ export function useProvideAuth(authClient): AuthContext {
 
   useEffect(() => {
     if (_identity && !_identity.getPrincipal().isAnonymous()) {
-
       setAuthClientReady(false);
       actorController.authenticateActor(_identity).then(() => {
         setAuthClientReady(true);
@@ -66,8 +65,8 @@ export function useProvideAuth(authClient): AuthContext {
   const identity = _identity;
   const isAuthenticated = isAuthenticatedLocal;
 
-  const logIn = async function (): Promise<Identity | undefined> {
-    const identity = await authClient.getIdentity();
+async function logIn(): Promise<Identity | undefined> {
+    const identity = await authClient.login();
     if (identity) {
       setIsAuthenticatedLocal(true);
       _setIdentity(identity);
@@ -77,6 +76,8 @@ export function useProvideAuth(authClient): AuthContext {
     }
 	
   };
+
+  
 
   function logOut() {
     setIsAuthenticatedLocal(false);

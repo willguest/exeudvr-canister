@@ -3,6 +3,9 @@ import { useAuth } from "../auth/auth";
 import { useEffect } from "react";
 import { createTokenActor } from "../token/index"
 
+import { Principal } from "@dfinity/principal";
+import { AccountIdentifier, SubAccount, LedgerCanister } from "@dfinity/nns";
+
 interface loginResponse {
     cbindex: number,
     result: boolean,
@@ -27,11 +30,9 @@ export default function AddUnityFunctions(unityContext) {
     unityContext.on("ICLogin", async function (cbIndex) {
 		await CanisterUtils.ICLogin(cbIndex, unityContext, auth);
 	});
-	
-	unityContext.on("GetCoin", async function (cbIndex) {
-		await CanisterUtils.GetCoin(cbIndex, unityContext, auth);
-	});
     */
+
+	// automate with construct(inputHandle: string, functionName: string)
     
 	async function handleLogin(cbIndex){
 		await IILogin(cbIndex, unityContext, auth);
@@ -68,40 +69,49 @@ export default function AddUnityFunctions(unityContext) {
 
 }
     
-async function IILogin(cbIndex, unityContext, auth) { 
+async function IILogin(cbIndex, ctx, auth) { 
     try {
-        const identity: Identity = await auth?.logIn();
-		const principal = identity.getPrincipal()
-		const agent = new HttpAgent({ identity });
-		const result = auth?.isAuthReady;
-
 		let data: loginResponse = {
             cbindex: cbIndex,
-            result: result,
-            principal: principal.toText(),
+            result: false,
+            principal: "",
             accountId: ""
         }
-		
-        unityContext.send("CanisterConnection", "HandleCallback", JSON.stringify(data));
+
+		data.cbindex = cbIndex;
+		if (auth.isAuthReady){
+			data.principal = auth.identity.getPrincipal().toString();
+			data.result = true;
+			console.log("Using stored principal: " + auth.identity.getPrincipal());
+		}
+		else{
+			const identity: Identity = await auth?.logIn();
+			const principal = identity.getPrincipal();
+			data.principal = principal.toString();
+			data.result = auth?.isAuthReady;
+			console.log("Login completed: " + auth.identity.getPrincipal());
+		}
+		data.accountId = "";
+		const sendStr = JSON.stringify(data);
+        ctx.send("CanisterConnection", "HandleCallback", sendStr);
 
     } catch (e) {
         console.error(e);
-        unityContext.send("CanisterConnection", "HandleCallback", JSON.stringify(e.message));
+        ctx.send("CanisterConnection", "HandleCallback", JSON.stringify(e.message));
     }
 }
 
-
 async function IILogout(cbIndex, unityContext, auth) { 
-	const identity = await auth?.logOut();
+	await auth?.logOut();
 	let data: loginResponse = {
 		cbindex: cbIndex,
 		result: true,
 		principal: "",
 		accountId: ""
 	}
-	unityContext.send("CanisterConnection", "HandleCallback", JSON.stringify(data));
+	const sendStr = JSON.stringify(data);
+	unityContext.send("CanisterConnection", "HandleCallback", sendStr);
 }
-
 
 
 async function GetToken(cbIndex, sendMessage, auth) {
