@@ -75,6 +75,7 @@
     "node": "^20.7.0",
     "node-fetch": "^3.3.2",
     "nvm": "^0.0.4",
+    "progressbar.js": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loading-icons": "^1.1.0",
@@ -83,6 +84,7 @@
     "redux": "^4.2.1",
     "rsync": "^0.6.1",
     "rustup": "^1.0.10",
+    "styled-components": "^6.0.9",
     "wasm-opt": "^1.4.0"
   }
 }

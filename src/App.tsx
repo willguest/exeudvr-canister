@@ -6,12 +6,12 @@ function App () {
 	const gameWindow = useUnity();
 	
     return (
-      <div>
-		{!gameWindow.isLoaded && <LoadingScreen value={gameWindow.progression}/>}
-		    <Unity unityContext={gameWindow.unityContext} devicePixelRatio={1}
-			  style={{height: "100%", width: "100%", 
-        position: "absolute", overflow: "hidden"}}/>
-	  </div>
+		<div>
+		{!gameWindow.isLoaded && <LoadingScreen progression={gameWindow.progression}/>}
+		<Unity unityContext={gameWindow.unityContext} devicePixelRatio={1}
+			style={{height: "100%", width: "100%", 
+			position: "absolute", overflow: "hidden"}}/>
+	</div>
     );
 }
 export default App;

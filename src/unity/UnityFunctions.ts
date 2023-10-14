@@ -34,11 +34,15 @@ export default function AddUnityFunctions(unityContext) {
     */
     
 	async function handleLogin(cbIndex){
-		await ICLogin(cbIndex, unityContext, auth);
+		await IILogin(cbIndex, unityContext, auth);
 	};
 
+	async function handleLogout(cbIndex){
+        await IILogout(cbIndex, unityContext, auth);
+    }
+
     async function handleGetToken(cbIndex){
-        await ICLogin(cbIndex, unityContext, auth);
+        await GetToken(cbIndex, unityContext, auth);
     }
 	
 	useEffect(() => {
@@ -47,6 +51,13 @@ export default function AddUnityFunctions(unityContext) {
 			removeEventListener("ICLogin", handleLogin);
 		};
 	}, [addEventListener, removeEventListener, handleLogin]);
+
+	useEffect(() => {
+		unityContext.on("ICLogout", handleLogout);
+		return () => {
+			removeEventListener("ICLogout", handleLogout);
+		};
+	}, [addEventListener, removeEventListener, handleLogout]);
 
     useEffect(() => {
 		unityContext.on("GetToken", handleGetToken);
@@ -57,7 +68,7 @@ export default function AddUnityFunctions(unityContext) {
 
 }
     
-async function ICLogin(cbIndex, unityContext, auth) { 
+async function IILogin(cbIndex, unityContext, auth) { 
     try {
         const identity: Identity = await auth?.logIn();
 		const principal = identity.getPrincipal()
@@ -78,6 +89,20 @@ async function ICLogin(cbIndex, unityContext, auth) {
         unityContext.send("CanisterConnection", "HandleCallback", JSON.stringify(e.message));
     }
 }
+
+
+async function IILogout(cbIndex, unityContext, auth) { 
+	const identity = await auth?.logOut();
+	let data: loginResponse = {
+		cbindex: cbIndex,
+		result: true,
+		principal: "",
+		accountId: ""
+	}
+	unityContext.send("CanisterConnection", "HandleCallback", JSON.stringify(data));
+}
+
+
 
 async function GetToken(cbIndex, sendMessage, auth) {
     
