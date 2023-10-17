@@ -28,21 +28,21 @@ export default function AddUnityFunctions(unityContext) {
     unityContext.on("ICLogin", async function (cbIndex) {
 		await IILogin(cbIndex, unityContext, auth);
 	});
+
+	unityContext.on("ICLogout", async function (cbIndex) {
+		await IILogout(cbIndex, unityContext, auth);
+	});
     
+	unityContext.on("GetToken", async function (cbIndex) {
+		await GetToken(cbIndex, unityContext, auth);
+	});
+
 
 	// automate with construct(inputHandle: string, functionName: string)
     /*
 	async function handleLogin(cbIndex){
 		await IILogin(cbIndex, unityContext, auth);
 	};
-
-	async function handleLogout(cbIndex){
-        await IILogout(cbIndex, unityContext, auth);
-    }
-
-    async function handleGetToken(cbIndex){
-        await GetToken(cbIndex, unityContext, auth);
-    }
 	
 	useEffect(() => {
 		unityContext.on("ICLogin", handleLogin);
@@ -50,20 +50,6 @@ export default function AddUnityFunctions(unityContext) {
 			removeEventListener("ICLogin", handleLogin);
 		};
 	}, [addEventListener, removeEventListener, handleLogin]);
-
-	useEffect(() => {
-		unityContext.on("ICLogout", handleLogout);
-		return () => {
-			removeEventListener("ICLogout", handleLogout);
-		};
-	}, [addEventListener, removeEventListener, handleLogout]);
-
-    useEffect(() => {
-		unityContext.on("GetToken", handleGetToken);
-		return () => {
-			removeEventListener("GetToken", handleGetToken);
-		};
-	}, [addEventListener, removeEventListener, handleGetToken]);
 	*/
 }
     
@@ -112,7 +98,7 @@ async function IILogout(cbIndex, unityContext, auth) {
 }
 
 
-async function GetToken(cbIndex, sendMessage, auth) {
+async function GetToken(cbIndex, ctx, auth) {
 	try{
 		const agent = new HttpAgent(auth.identity);
 		const tokenActor = createTokenActor(agent);
@@ -126,15 +112,15 @@ async function GetToken(cbIndex, sendMessage, auth) {
 
 		if (response['ok']){
 			const fundNum = Number(response['ok']);
-			console.log("Fund Request successful:", fundNum);
+			console.log("Token request successful:", fundNum);
 		}
 		else if (response['err']){
 			const responseErr = response['err'];
 		}
-		sendMessage("CanisterConnection", "HandleCallback", JSON.stringify(data));
+		ctx.send("CanisterConnection", "HandleCallback", JSON.stringify(data));
 
 	} catch (e) {
 		console.error(e);
-		sendMessage("CanisterConnection", "HandleCallback", JSON.stringify(e.message));
+		ctx.send("CanisterConnection", "HandleCallback", JSON.stringify(e.message));
     }
 };

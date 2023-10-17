@@ -19,7 +19,7 @@ class AuthClientWrapper {
 
   async login(): Promise<Identity | undefined> {
     return new Promise(async (resolve) => {
-      const localII = process.env.CANISTER_ID_INTERNET_IDENTITY;
+      const localII = "http://127.0.0.1:4943/?canisterId=" + process.env.CANISTER_ID_INTERNET_IDENTITY;
       await this.authClient?.login({
         identityProvider: 
         process.env.NODE_ENV === "production"
