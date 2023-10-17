@@ -80,7 +80,6 @@ async function IILogin(cbIndex, ctx, auth) {
         ctx.send("CanisterConnection", "HandleCallback", sendStr);
 
     } catch (e) {
-        console.error(e);
         ctx.send("CanisterConnection", "HandleCallback", JSON.stringify(e.message));
     }
 }
@@ -103,6 +102,8 @@ async function GetToken(cbIndex, ctx, auth) {
 		const agent = new HttpAgent(auth.identity);
 		const tokenActor = createTokenActor(agent);
 		const response = await tokenActor.requestCoin();
+		
+		JSON.stringify(response, (_, v) => typeof v === 'bigint' ? v.toString() : v)
 
         let data: tokenResponse = {
             cbIndex: cbIndex,
@@ -112,7 +113,6 @@ async function GetToken(cbIndex, ctx, auth) {
 
 		if (response['ok']){
 			const fundNum = Number(response['ok']);
-			console.log("Token request successful:", fundNum);
 		}
 		else if (response['err']){
 			const responseErr = response['err'];
@@ -120,7 +120,6 @@ async function GetToken(cbIndex, ctx, auth) {
 		ctx.send("CanisterConnection", "HandleCallback", JSON.stringify(data));
 
 	} catch (e) {
-		console.error(e);
 		ctx.send("CanisterConnection", "HandleCallback", JSON.stringify(e.message));
     }
 };
