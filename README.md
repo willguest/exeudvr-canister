@@ -1,26 +1,36 @@
-# ICVR + React ++
+# ICVR - React
+Welcome to the **icvr-react** template, for building Unity WebXR scenes on the Internet Computer. This project, which should be considered a work in progress, connects Unity's C# functionality to a React-based, TypeScript module capable of passing signed messages on the Internet Computer. JavaScript and Rust can be used alongside this, as can the the Motoko package manager (mops), giving easy access to additional resources on the World Computer.
 
-### Get started directly in your browser:
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/willguest/icvr-react)
-
-This template gives you everything you need to build a full-stack Web3 application on the [Internet Computer](https://internetcomputer.org/).
-
-For an example of a real-world dapp built using this starter project, check out the [source code](https://github.com/dfinity/feedback) for DFINITY's [Developer Experience Feedback Board](https://dx.internetcomputer.org/).
+This repo uses Internet Identity, a WebAuthn solution configured for the Internet Computer, providing a secure context to pass messages to the blockchain, enabling crypto transactions and secure messaging from inside Unity. 
 
 ## 📦 Create a New Project
 
-Make sure that [Node.js](https://nodejs.org/en/) `>= 16` and [`dfx`](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.14` are installed on your system.
+Make sure that [Node.js](https://nodejs.org/en/) `>= 16` and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.14` are installed on your system.
 
-Run the following commands in a new, empty project directory:
+Beginning with a new, empty project directory:
+
+Import the project and start dfx with the following commands:
 
 ```sh
 npx degit willguest/icvr-react # Download this starter project
 dfx start --clean --background # Run dfx in the background
-npm run setup # Install packages, deploy canisters, and generate type bindings
-
-npm start # Start the development server
 ```
+
+Add the Unity build:
+  - Currently only supports uncompressed builds. Support for gzip will be added soon
+  - Make sure the Unity build was called `unity_build`. If another name is used, update `UnityInterface.tsx`.
+  - Place the files in `src/assets/build`.
+
+Enter the following commands, which can also be found in the *NPM SCRIPTS* VS Code sidebar
+
+```sh
+npm run setup # Install packages, deploy canisters, and generate type bindings
+npm run build # Compiles TypeScript files and builds the webpack.
+npm run start # Deploys local dependency canisters and runs the front- and back-end in parallel.
+```
+
+You can then open a new browser window at location prompted by the terminal
+  `http://127.0.0.1:4943/?canisterId=<local-canister-id>`
 
 When ready, run `dfx deploy --network ic` to deploy your application to the Internet Computer.
 
