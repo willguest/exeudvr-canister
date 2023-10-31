@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const { debug } = require("console");
 
 let localCanisters, prodCanisters, canisters;
 
@@ -46,7 +45,6 @@ module.exports = {
   mode: isDevelopment ? "development" : "production",
   entry: {
     index: path.join(__dirname, "src", "index.html").replace(/\.html$/, ".tsx"),
-    //"mylib": path.resolve(__dirname, 'src/App.tsx'),
   },
   devtool: isDevelopment ? "source-map" : false,
   optimization: {
