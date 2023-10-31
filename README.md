@@ -1,6 +1,7 @@
-# ICVR-Unity 
+# ICVR - React
+Welcome to the **icvr-react** template, for building Unity WebXR scenes on the Internet Computer. This project, which should be considered a work in progress, connects Unity's C# functionality to a React-based, TypeScript module capable of passing signed messages on the Internet Computer. JavaScript and Rust can be used alongside this, as can the the Motoko package manager (mops), giving easy access to additional resources on the World Computer.
 
-Welcome to the ICVR template, for building Unity scenes on the Internet Computer. This template, which should be considered a work in progress, provides both Unity and WebAuthn contexts, helps to pass in-game functions to endpoints on the web or blockchain. It is configured to use Internet Identity, a WebAuthn solution configured for the Internet Computer, and provides a secure context to pass messages to the blockchain, enabling crypto transactions and secure messaging. 
+This repo uses Internet Identity, a WebAuthn solution configured for the Internet Computer, providing a secure context to pass messages to the blockchain, enabling crypto transactions and secure messaging from inside Unity. 
 
 ## 📦 Create a New Project
 
@@ -8,7 +9,7 @@ Make sure that [Node.js](https://nodejs.org/en/) `>= 16` and [dfx](https://inter
 
 Beginning with a new, empty project directory:
 
-- Import the project and start dfx with the following commands:
+Import the project and start dfx with the following commands:
 
 ```sh
 npx degit willguest/icvr-react # Download this starter project
@@ -20,7 +21,7 @@ Add the Unity build:
   - Make sure the Unity build was called `unity_build`. If another name is used, update `UnityInterface.tsx`.
   - Place the files in `src/assets/build`.
 
-Run the following commands, which can also be found in the *NPM SCRIPTS* sidebar.
+Enter the following commands, which can also be found in the *NPM SCRIPTS* VS Code sidebar
 
 ```sh
 npm run setup # Install packages, deploy canisters, and generate type bindings
@@ -32,8 +33,6 @@ You can then open a new browser window at location prompted by the terminal
   `http://127.0.0.1:4943/?canisterId=<local-canister-id>`
 
 When ready, run `dfx deploy --network ic` to deploy your application to the Internet Computer.
-
-
 
 ## 🛠️ Technology Stack
 - [ICVR](https://github.com/willguest/ICVR): Interactive, immersive Unity toolkit for the World Computer.
