@@ -7,7 +7,7 @@ function App () {
     return (
 		<Fragment>
 			{!appWindow.isLoaded && 
-			<LoadingScreen progression={appWindow.progression}/>}
+				<LoadingScreen progression={appWindow.progression}/>}
 			<AppWindowInternal unityContext={appWindow.unityContext} />
 		</Fragment>
     );

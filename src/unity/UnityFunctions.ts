@@ -1,10 +1,6 @@
 import { Identity, HttpAgent } from "@dfinity/agent";
 import { useAuth } from "../auth/auth";
-import { useEffect } from "react";
 import { createTokenActor } from "../token/index"
-
-import { Principal } from "@dfinity/principal";
-import { AccountIdentifier, SubAccount, LedgerCanister } from "@dfinity/nns";
 
 interface loginResponse {
     cbindex: number,
@@ -37,8 +33,8 @@ export default function AddUnityFunctions(unityContext) {
 		await GetToken(cbIndex, unityContext, auth);
 	});
 
-
-	// automate with construct(inputHandle: string, functionName: string)
+	// alternative pattern, 
+	// automate with function: construct (inputHandle: string, functionName: string)
     /*
 	async function handleLogin(cbIndex){
 		await IILogin(cbIndex, unityContext, auth);

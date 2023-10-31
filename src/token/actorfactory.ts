@@ -16,10 +16,6 @@ export const createExtendedActorClass = (
 ): ExtendedActorConstructor => {
   class ExtendedActor extends Actor.createActorClass(IDLFactory) {
     constructor() {
-      
-      console.log("constructing extended actor");
-
-
       const principalCanisterId = typeof canisterId === 'string' ? Principal.fromText(canisterId) : canisterId;
       super({ agent, canisterId: principalCanisterId });
 

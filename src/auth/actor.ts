@@ -1,5 +1,4 @@
 import { Actor, HttpAgent, Identity } from "@dfinity/agent";
-
 import { _SERVICE } from "../declarations/backend/backend.did";
 import { idlFactory } from  '../declarations/backend';
 

@@ -16,7 +16,6 @@ type AuthContextProps = {
 	children: React.ReactElement;
 };
 
-
 // Provider hook that creates auth object and handles state
 export function useProvideAuth(authClient): AuthContext {
   
@@ -74,10 +73,7 @@ async function logIn(): Promise<Identity | undefined> {
     } else {
       console.error("Could not get identity from II");
     }
-	
   };
-
-  
 
   function logOut() {
     setIsAuthenticatedLocal(false);
