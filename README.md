@@ -1,7 +1,13 @@
 # ICVR - React
-Welcome to the **icvr-react** template, for building Unity WebXR scenes on the Internet Computer. This project, which should be considered a work in progress, connects Unity's C# functionality to a React-based, TypeScript module capable of passing signed messages on the Internet Computer. JavaScript and Rust can be used alongside this, as can the the Motoko package manager (mops), giving easy access to additional resources on the World Computer.
+This is a template for deploying Unity WebXR scenes on the Internet Computer.
 
-This repo uses Internet Identity, a WebAuthn solution configured for the Internet Computer, providing a secure context to pass messages to the blockchain, enabling crypto transactions and secure messaging from inside Unity. 
+This project, which should be considered a work in progress, connects Unity's C# functionality to a React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project hopes to enable as many people as possible to build immersive experiences on the Internet Computer, and is compatible with:
+
+- Node.js: Easily add JavaScript packages to extend functionality
+- Rust: Add crates with Cargo.
+- Motoko: Connects to the **mops** package manager, for Web 3.0 functionality.
+
+This repo also integrates Internet Identity, a WebAuthn solution configured for the Internet Computer. The implementation provides a secure context to pass messages to the blockchain, enabling crypto transactions and secure messaging, from inside Unity. 
 
 ## 📦 Create a New Project
 
