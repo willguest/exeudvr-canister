@@ -27,7 +27,7 @@ Add the Unity build:
   - Make sure the Unity build was called `unity_build`. If another name is used, update `UnityInterface.tsx`.
   - Place the files in `src/assets/build`.
 
-Enter the following commands, which can also be found in the *NPM SCRIPTS* VS Code sidebar
+Enter the following commands, which reference NPM scripts:
 
 ```sh
 npm run setup # Install packages, deploy canisters, and generate type bindings
