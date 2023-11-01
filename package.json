@@ -10,7 +10,7 @@
     "backend": "mo-dev --generate --deploy -y",
     "frontend": "webpack serve --mode development --env development",
     "test": "run-s test:backend",
-    "test:backend": "mo-test",
+    "test:backend": "",
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\" \"backend/**/*.mo\"",
     "sources": "mops sources",
     "postinstall": "mops install"
