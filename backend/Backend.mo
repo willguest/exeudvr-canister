@@ -1,18 +1,31 @@
-actor class Backend() {
-  stable var counter = 0;
+import Result "mo:base/Result";
+import Principal "mo:base/Principal";
+import Text "mo:base/Text";
+import Nat "mo:base/Nat";
+import Prim "mo:prim";
 
-  // Get the current count
-  public query func get() : async Nat {
-    counter;
-  };
+shared(creator) actor class ICVR_Actor() = this {
+	
+	public type Balance = Nat;
+	public type TokenIdentifier = Text;
+	
+	public type CommonError = {
+      #InvalidToken: TokenIdentifier;
+      #Other : Text;
+    };
 
-  // Increment the count by one
-  public func inc() : async () {
-    counter += 1;
-  };
+	public type CoinRequestResponse = Result.Result<Balance, CommonError>;
 
-  // Add `n` to the current count
-  public func add(n : Nat) : async () {
-    counter += n;
-  };
-};
+	public func idQuick() : async Principal {
+      Principal.fromActor(this)
+    };
+	
+	public shared func requestCoin() : async CoinRequestResponse {
+		Prim.debugPrint("requesting a coin");
+		let canisterId = "cps3y-fiaaa-aaaak-qav4a-cai" : Text;
+		let iCoin = actor(canisterId): actor { 
+			requestCoin: () -> async CoinRequestResponse };
+		return await iCoin.requestCoin();
+    };
+	
+}

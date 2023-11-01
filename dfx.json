@@ -1,5 +1,9 @@
 {
   "canisters": {
+    "internet_identity": {
+      "type": "pull",
+      "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+    },
     "backend": {
       "type": "motoko",
       "main": "backend/Backend.mo"
@@ -7,7 +11,10 @@
     "frontend": {
       "dependencies": ["backend"],
       "type": "assets",
-      "source": ["dist/"]
+      "frontend": {
+        "entrypoint": "src/index.html"
+      },
+      "source": ["src/assets", "dist"]
     }
   },
   "defaults": {

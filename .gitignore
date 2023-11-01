@@ -10,6 +10,10 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+ts-out
+target
+package-lock.json
+Cargo.lock
 *.local
 
 # Editor directories and files
@@ -18,6 +22,7 @@ dist-ssr
 !.vscode/settings.json
 .idea
 .DS_Store
+**/.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
@@ -36,3 +41,8 @@ dist-ssr
 .env.development
 .env.test
 .env.production
+
+# Build files (to be added from Unity)
+src/assets/Build/unity_build.data
+src/assets/Build/unity_build.framework.js
+src/assets/Build/unity_build.wasm
