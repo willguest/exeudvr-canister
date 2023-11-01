@@ -58,3 +58,10 @@ When ready, run `dfx deploy --network ic` to deploy your application to the Inte
 - Reduce the latency of update calls by passing the `--emulator` flag to `dfx start`.
 - Install a Motoko package by running `npx ic-mops add <package-name>`. Here is a [list of available packages](https://mops.one/).
 - Split your frontend and backend console output by running `npm run frontend` and `npm run backend` in separate terminals.
+
+
+## 🙏 Acknowledgements
+
+Thanks to [DFINTY](https://github.com/dfinity) for building out the World Computer.
+
+Thanks to [Ryan Vandersmith](https://github.com/rvanasa) for the original [vite-react-motoko](https://github.com/rvanasa/vite-react-motoko) template, on which this is based.
