@@ -22,10 +22,17 @@ npx degit willguest/icvr-react # Download this starter project
 dfx start --clean --background # Run dfx in the background
 ```
 
+<img src="https://github.com/willguest/icvr-react/assets/24574013/27ba3209-bcec-4fc3-aaa5-5156bca28a9d" align="right" width="400px"/>
 Add the Unity build:
-  - Currently only supports uncompressed builds. Support for gzip will be added soon
-  - Make sure the Unity build was called `unity_build`. If another name is used, update `UnityInterface.tsx`.
+
+  - Currently only supports uncompressed builds. \
+    Support for gzip will be added soon.
+    
+  - Make sure the Unity build is called `unity_build`. \
+    If another name is used, update `UnityInterface.tsx`.
+    
   - Copy the files from the 'Build' folder into `src/assets/build`.
+
 
 Enter the following commands, which reference NPM scripts:
 
