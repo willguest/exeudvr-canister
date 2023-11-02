@@ -25,7 +25,7 @@ dfx start --clean --background # Run dfx in the background
 Add the Unity build:
   - Currently only supports uncompressed builds. Support for gzip will be added soon
   - Make sure the Unity build was called `unity_build`. If another name is used, update `UnityInterface.tsx`.
-  - Place the files in `src/assets/build`.
+  - Copy the files from the 'Build' folder into `src/assets/build`.
 
 Enter the following commands, which reference NPM scripts:
 
