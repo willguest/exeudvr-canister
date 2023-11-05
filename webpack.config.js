@@ -35,8 +35,8 @@ function initCanisterEnv() {
     return prev;
   }, {});
 }
-const canisterEnvVariables = initCanisterEnv();
 
+const canisterEnvVariables = initCanisterEnv();
 const isDevelopment = process.env.NODE_ENV !== "production";
 const frontend_entry = path.join("src", "index.html");
 
@@ -60,6 +60,9 @@ module.exports = {
       stream: require.resolve("stream-browserify/"),
       util: require.resolve("util/"),
     },
+    alias: {
+      unity: path.resolve(__dirname, 'dist/unity')
+    }
   },
   output: {
     filename: "index.js",

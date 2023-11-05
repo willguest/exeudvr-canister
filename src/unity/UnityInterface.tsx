@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import Unity, { IUnityConfig, UnityContext } from "react-unity-webgl";
-import AddUnityFunctions from "../unity/UnityFunctions";
+import AddUnityFunctions from "./UnityFunctions";
 
 
 const defaultUnityContext = new UnityContext({
@@ -19,10 +19,10 @@ type UnityProviderProps = {
 }
   
 interface UnityInterface {
-contextConfig: IUnityConfig,
-unityContext: UnityContext,
-isLoaded: boolean,
-progression: number
+	contextConfig: IUnityConfig,
+	unityContext: UnityContext,
+	isLoaded: boolean,
+	progression: number
 }
 
 export const unityInterface = createContext<UnityInterface>({
@@ -48,9 +48,9 @@ function useUnityInterface(unityContext): UnityInterface {
         setIsLoaded(true);
       });
     }, [unityContext]);
-	
+
 	AddUnityFunctions(unityContext);
-	
+
 	return {
 		contextConfig,
 		unityContext,
@@ -67,8 +67,7 @@ export const AppWindowInternal: React.FC<UnityContextProps> = ({ unityContext })
 	return (
 		<Unity unityContext={unityContext} devicePixelRatio={1}
 				style={{height: "100%", width: "100%", 
-				position: "absolute", overflow: "hidden",
-				margin: 0}}/>
+				position: "absolute", margin: 0}}/>
 	  );
 }
 
