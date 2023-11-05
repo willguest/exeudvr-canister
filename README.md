@@ -1,7 +1,7 @@
 # ICVR - React
 This is a template for deploying Unity WebXR scenes on the Internet Computer.
 
-This project, which should be considered a work in progress, connects Unity's C# functionality to a React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project hopes to enable as many people as possible to build immersive experiences on the Internet Computer, and is compatible with:
+This project, which should be considered a work in progress, connects Unity's C# functionality to React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project aims to be as widely compatible, facilitating many flavours of immersive experience on the Internet Computer. It is compatible with:
 
 - Node.js: Easily add JavaScript packages to extend functionality
 - Rust: Add crates with Cargo.
@@ -11,7 +11,7 @@ This repo also integrates Internet Identity, a WebAuthn solution configured for 
 
 ## 📦 Create a New Project
 
-Make sure that [Node.js](https://nodejs.org/en/) `>= 16` and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.14` are installed on your system.
+Make sure that [Node.js](https://nodejs.org/en/) `>= 20` and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.14` are installed on your system.
 
 Beginning with a new, empty project directory:
 
@@ -22,10 +22,17 @@ npx degit willguest/icvr-react # Download this starter project
 dfx start --clean --background # Run dfx in the background
 ```
 
+<img src="https://github.com/willguest/icvr-react/assets/24574013/27ba3209-bcec-4fc3-aaa5-5156bca28a9d" align="right" width="400px"/>
 Add the Unity build:
-  - Currently only supports uncompressed builds. Support for gzip will be added soon
-  - Make sure the Unity build was called `unity_build`. If another name is used, update `UnityInterface.tsx`.
-  - Place the files in `src/assets/build`.
+
+  - Currently only supports uncompressed builds. \
+    Support for gzip will be added soon.
+    
+  - Make sure the Unity build is called `unity_build`. \
+    If another name is used, update `UnityInterface.tsx`.
+    
+  - Copy the files from the 'Build' folder into `src/assets/build`.
+
 
 Enter the following commands, which reference NPM scripts:
 
@@ -35,7 +42,7 @@ npm run build # Compiles TypeScript files and builds the webpack.
 npm run start # Deploys local dependency canisters and runs the front- and back-end in parallel.
 ```
 
-You can then open a new browser window at location prompted by the terminal
+You can then open a new browser window at the location prompted by the terminal.
   `http://127.0.0.1:4943/?canisterId=<local-canister-id>`
 
 When ready, run `dfx deploy --network ic` to deploy your application to the Internet Computer.

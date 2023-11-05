@@ -1,6 +1,23 @@
 import { Identity, HttpAgent } from "@dfinity/agent";
 import { useAuth } from "../auth/auth";
-import { createTokenActor } from "../token/index"
+import { createTokenActor } from "../token/index";
+
+// attempting to identify the size of the unity build
+const buildSize = async () => {
+	const dataFile = '../src/assets/Build/unity_build.data';
+	const wasmFile = '../assets/Build/unity_build.wasm';
+
+	const file1 = await fetch(dataFile, { method: 'HEAD' });
+	const file2 = await fetch(wasmFile, { method: 'HEAD' });
+
+	console.log("file types:\n" + 
+	JSON.stringify(file1.headers.get('content-type')) + '\n' +
+	JSON.stringify(file2.headers.get('content-type')) );
+
+	const dS = file1.headers.get('content-length');
+	const wS = file2.headers.get('content-length');
+	return +wS;
+}
 
 interface loginResponse {
     cbindex: number,

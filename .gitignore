@@ -31,6 +31,7 @@ Cargo.lock
 
 # Canisters
 /src/declarations
+canister_ids.json
 .dfx
 .vessel
 .mops

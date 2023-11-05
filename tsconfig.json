@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "baseUrl": "./",
     "outDir": "./dist",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -17,8 +18,12 @@
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "types": []
+    "types": ["node"],
+    "paths": {
+      "unity": ["dist/unity"]
+    }
   },
-  "include": ["src"],
+  "include": ["src",
+    "dist/unity/UnityBuildSize.json"],
   "exclude": ["node_modules"]
 }
