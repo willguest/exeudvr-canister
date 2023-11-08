@@ -1,7 +1,7 @@
 # ICVR - React
 This is a template for deploying Unity WebXR scenes on the Internet Computer.
 
-This project, which should be considered a work in progress, connects Unity's C# functionality to a React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project hopes to enable as many people as possible to build immersive experiences on the Internet Computer, and is compatible with:
+This project, which should be considered a work in progress, connects Unity's C# functionality to React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project aims to be as widely compatible, facilitating many flavours of immersive experience on the Internet Computer. It is compatible with:
 
 - Node.js: Easily add JavaScript packages to extend functionality
 - Rust: Add crates with Cargo.
@@ -42,7 +42,7 @@ npm run build # Compiles TypeScript files and builds the webpack.
 npm run start # Deploys local dependency canisters and runs the front- and back-end in parallel.
 ```
 
-You can then open a new browser window at location prompted by the terminal
+You can then open a new browser window at the location prompted by the terminal.
   `http://127.0.0.1:4943/?canisterId=<local-canister-id>`
 
 When ready, run `dfx deploy --network ic` to deploy your application to the Internet Computer.
