@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import img from "./../assets/Build/unity_build.jpg";
-import UnityBuildSize from "../../dist/unity/UnityBuildSize.json";
+//import UnityBuildSize from "../../dist/unity/UnityBuildSize.json";
 
 // palette:  
 // https://coolors.co/702781-bc227a-1ea8e1-f28e31-000000
@@ -36,9 +36,9 @@ const LoadingScreen: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(5); 
 
-  // Read file size
-  const totalSize = parseInt(UnityBuildSize['unity_build.data']) + parseInt(UnityBuildSize['unity_build.wasm']);
-  const loadSize = (Math.round((totalSize / 1048576) * 100) / 100);
+  // Read file size - to be updated once proper testing is done...
+  //const totalSize = parseInt(UnityBuildSize['unity_build.data']) + parseInt(UnityBuildSize['unity_build.wasm']);
+  const loadSize = (Math.round((35000000 / 1048576) * 100) / 100);
 
   // Guess download speed, in MB/s
   // TODO: detect internet speed
