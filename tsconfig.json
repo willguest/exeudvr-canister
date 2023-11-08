@@ -3,6 +3,7 @@
     "target": "ESNext",
     "baseUrl": "./",
     "outDir": "./dist",
+    "rootDir": "src",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
@@ -23,7 +24,6 @@
       "unity": ["dist/unity"]
     }
   },
-  "include": ["src",
-    "dist/unity/UnityBuildSize.json"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
