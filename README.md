@@ -1,4 +1,4 @@
-# ICVR - React
+# ICVR - Canister
 This is a template for deploying immersive experiences on the Internet Computer, configured for use with the [ICVR](https://github.com/willguest/ICVR) framework.
 
 This project connects Unity's C# functionality (user interaction) to React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project aims to be widely compatible, facilitating many flavours of immersive experience on the Internet Computer. It is built with:
