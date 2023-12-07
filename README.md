@@ -3,7 +3,7 @@ This is a template for deploying immersive experiences on the Internet Computer,
 
 This project connects Unity's C# functionality (user interaction) to React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project aims to be widely compatible, facilitating many flavours of immersive experience on the Internet Computer. It is built with:
 
-- Typescript everywhere, but with JavaScript compatibility.
+- TypeScript everywhere, but with JavaScript compatibility.
 - Node.js: Easily add JavaScript packages to extend functionality.
 - Rust: Add crates with Cargo.
 - Motoko: Connects to the **mops** package manager, for Web 3.0 functionality.
