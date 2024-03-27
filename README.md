@@ -1,15 +1,28 @@
-# ICVR - React
-This is a template for deploying Unity WebXR scenes on the Internet Computer.
+# ICVR - Canister
+This is a template for deploying immersive experiences on the Internet Computer, configured for use with the [ICVR](https://github.com/willguest/ICVR) framework.
 
-This project, which should be considered a work in progress, connects Unity's C# functionality to React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project aims to be as widely compatible, facilitating many flavours of immersive experience on the Internet Computer. It is compatible with:
+This project connects Unity's C# functionality (user interaction) to React and TypeScript, allowing you to pass signed messages from Unity to the Internet Computer. This project aims to be widely compatible, facilitating many flavours of immersive experience on the Internet Computer. It is built with:
 
-- Node.js: Easily add JavaScript packages to extend functionality
+- TypeScript everywhere, but with JavaScript compatibility.
+- Node.js: Easily add JavaScript packages to extend functionality.
 - Rust: Add crates with Cargo.
 - Motoko: Connects to the **mops** package manager, for Web 3.0 functionality.
 
-This repo also integrates Internet Identity, a WebAuthn solution configured for the Internet Computer. The implementation provides a secure context to pass messages to the blockchain, enabling crypto transactions and secure messaging, from inside Unity. 
+This repo also uses Internet Identity, a WebAuthn solution configured for the Internet Computer. The implementation provides a secure context to pass messages to the blockchain, enabling crypto transactions and secure messaging, from inside Unity. 
 
-## 📦 Create a New Project
+```js
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <UnityProvider>
+          <App />
+        </UnityProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+```
+
+## 📦 Creating a New Project
 
 Make sure that [Node.js](https://nodejs.org/en/) `>= 20` and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.14` are installed on your system.
 
@@ -72,6 +85,9 @@ When ready, run `dfx deploy --network ic` to deploy your application to the Inte
 - Install a Motoko package by running `npx ic-mops add <package-name>`. Here is a [list of available packages](https://mops.one/).
 - Split your frontend and backend console output by running `npm run frontend` and `npm run backend` in separate terminals.
 
+## 💛 Sponsorship
+
+The framework is open-source and was initially funded by non-dilutive grants from the Internet Computer. I welcome sponsorship in all forms and look forward to scaling this project as more resources become available. Please visit my [sponsorship page](https://github.com/sponsors/willguest) for more information.
 
 ## 🙏 Acknowledgements
 
