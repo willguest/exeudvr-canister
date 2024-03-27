@@ -47,3 +47,4 @@ canister_ids.json
 src/assets/Build/unity_build.data
 src/assets/Build/unity_build.framework.js
 src/assets/Build/unity_build.wasm
+tsconfig.tsbuildinfo
