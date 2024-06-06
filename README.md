@@ -31,7 +31,7 @@ Beginning with a new, empty project directory:
 Import the project and start dfx with the following commands:
 
 ```sh
-npx degit willguest/icvr-react # Download this starter project
+npx degit willguest/icvr-canister # Download this template
 dfx start --clean --background # Run dfx in the background
 ```
 
