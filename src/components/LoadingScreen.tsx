@@ -79,7 +79,7 @@ const LoadingScreen: React.FC = () => {
         <StyledBanner 
           duration={duration} 
           progress={progress}/>
-        <StyledImage src={img} alt="island collective"/>
+        <StyledImage src={img} alt="ExeuδVR"/>
         </Fragment>
     );
 };
