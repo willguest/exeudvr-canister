@@ -9,8 +9,8 @@ const defaultUnityContext = new UnityContext({
 	frameworkUrl: "Build/unity_build.framework.js",
 	codeUrl: "Build/unity_build.wasm",
 	streamingAssetsUrl: "StreamingAssets",
-	companyName: "ICVR",
-	productName: "ICVR Template",
+	companyName: "Exeuδ",
+	productName: "ExeuδVR Template",
 	productVersion: "0.1.0",
 });
 

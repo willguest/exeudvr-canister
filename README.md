@@ -70,7 +70,7 @@ When ready, run `dfx deploy --network ic` to deploy your application to the Inte
 
 ## 📚 Documentation
 
-- [ICVR documentation](https://github.com/willguest/ICVR/tree/develop/Documentation)
+- [Ex*euδ*VR documentation](https://github.com/Exeud/ExeudVR/tree/develop/Documentation)
 - [React quick start guide](https://react.dev/learn)
 - [Internet Computer docs](https://internetcomputer.org/docs/current/developer-docs/ic-overview)
 - [`dfx.json` reference schema](https://internetcomputer.org/docs/current/references/dfx-json-reference/)

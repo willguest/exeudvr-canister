@@ -4,7 +4,7 @@ import Text "mo:base/Text";
 import Nat "mo:base/Nat";
 import Prim "mo:prim";
 
-shared(creator) actor class ICVR_Actor() = this {
+shared(creator) actor class ExeudVR_Actor() = this {
 	
 	public type Balance = Nat;
 	public type TokenIdentifier = Text;
