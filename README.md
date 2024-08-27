@@ -1,5 +1,5 @@
 # Ex*euδ* VR Canister Template
-This is a template for deploying immersive experiences on the Internet Computer, configured for use with the [ExeuδVR Unity toolkit](https://github.com/willguest/ExeudVR).
+This is a template for deploying immersive experiences on the Internet Computer, configured for use with the [ExeuδVR Unity toolkit](https://github.com/Exeud/ExeudVR).
 
 This project connects Unity's C# functionality (user interaction) to TypeScript interfaces and functions, enabling authentication and message signing from Unity to the Internet Computer. This project aims to be widely compatible, facilitating many flavours of immersive experience on the Internet Computer. It is built with:
 
@@ -31,7 +31,7 @@ Beginning with a new, empty project directory:
 Import the project and start dfx with the following commands:
 
 ```sh
-npx degit willguest/exeudvr-canister # Download this template
+npx degit Exeud/exeudvr-canister # Download this template
 dfx start --clean --background # Run dfx in the background
 ```
 
@@ -60,7 +60,7 @@ You can then open a new browser window at the location prompted by the terminal.
 When ready, run `dfx deploy --network ic` to deploy your application to the Internet Computer.
 
 ## 🛠️ Technology Stack
-- [ExeudVR](https://github.com/willguest/ExeudVR): Interactive, immersive Unity toolkit.
+- [ExeudVR](https://github.com/Exeud/ExeudVR): Interactive, immersive Unity toolkit.
 - [React](https://reactjs.org/): a component-based UI library
 - [TypeScript](https://www.typescriptlang.org/): JavaScript extended with syntax for types
 - [Prettier](https://prettier.io/): code formatting for a wide range of supported languages
@@ -82,10 +82,6 @@ When ready, run `dfx deploy --network ic` to deploy your application to the Inte
 - Reduce the latency of update calls by passing the `--emulator` flag to `dfx start`.
 - Install a Motoko package by running `npx ic-mops add <package-name>`. Here is a [list of available packages](https://mops.one/).
 - Split your frontend and backend console output by running `npm run frontend` and `npm run backend` in separate terminals.
-
-## 💛 Sponsorship
-
-The framework is open-source and was initially funded by non-dilutive grants from the Internet Computer. I welcome sponsorship in all forms and look forward to scaling this project as more resources become available. Please visit my [sponsorship page](https://github.com/sponsors/willguest) for more information.
 
 ## 🙏 Acknowledgements
 
