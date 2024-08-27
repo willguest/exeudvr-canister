@@ -35,7 +35,7 @@ npx degit willguest/exeudvr-canister # Download this template
 dfx start --clean --background # Run dfx in the background
 ```
 
-<img src="https://github.com/willguest/icvr-react/assets/24574013/27ba3209-bcec-4fc3-aaa5-5156bca28a9d" align="right" width="400px"/>
+<img src="https://github.com/user-attachments/assets/e490610d-8660-4136-af74-855ecb8a2c9d" align="right" width="400px"/>
 Add the Unity build:
 
   - Currently ExeudVR only supports uncompressed builds. 
