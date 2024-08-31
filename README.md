@@ -37,8 +37,6 @@ dfx start --clean --background # Run dfx in the background
 
 <img src="https://github.com/user-attachments/assets/e490610d-8660-4136-af74-855ecb8a2c9d" align="right" width="400px"/>
 Add the Unity build:
-
-  - Currently ExeudVR only supports uncompressed builds. 
     
   - Make sure the Unity build is called `unity_build`. \
     If another name is used, update `UnityInterface.tsx`.
