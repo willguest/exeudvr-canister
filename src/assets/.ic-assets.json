@@ -1,0 +1,29 @@
+[
+  {
+    "match": "**/*.data.unityweb",
+    "headers": {
+        "Content-Type": "application/octet-stream",
+        "Content-Encoding": ["gzip", "br"]
+    }
+  },
+  {
+      "match": "**/*.framework.js.unityweb",
+      "headers": {
+          "Content-Type": "application/javascript",
+          "Content-Encoding": ["gzip", "br"]
+      }
+  },
+  {
+      "match": "**/*.loader.js",
+      "headers": {
+          "Content-Type": "application/javascript"
+      }
+  },
+  {
+      "match": "**/*.wasm.unityweb",
+      "headers": {
+          "Content-Type": "application/wasm",
+          "Content-Encoding": ["gzip", "br"]
+      }
+  }
+]

@@ -24,6 +24,11 @@
       "unity": ["dist/unity"]
     }
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src", 
+    "exeudvr-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
