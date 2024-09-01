@@ -5,9 +5,9 @@ import AddUnityFunctions from "./UnityFunctions";
 
 const defaultUnityContext = new UnityContext({
 	loaderUrl: "Build/unity_build.loader.js",
-	dataUrl: "Build/unity_build.data.unityweb",
-	frameworkUrl: "Build/unity_build.framework.js.unityweb",
-	codeUrl: "Build/unity_build.wasm.unityweb",
+	dataUrl: "Build/unity_build.data.gz",
+	frameworkUrl: "Build/unity_build.framework.js.gz",
+	codeUrl: "Build/unity_build.wasm.gz",
 	streamingAssetsUrl: "StreamingAssets",
 	companyName: "Exeuδ",
 	productName: "ExeuδVR Template",

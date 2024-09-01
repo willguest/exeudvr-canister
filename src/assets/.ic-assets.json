@@ -1,29 +1,71 @@
 [
-  {
-    "match": "**/*.data.unityweb",
-    "headers": {
-        "Content-Type": "application/octet-stream",
-        "Content-Encoding": ["gzip", "br"]
+    {
+        "match": "**/*.loader.js",
+        "headers": {
+            "Content-Type": "application/javascript"
+        }
+    },
+    {
+        "match": "**/*.data.unityweb",
+        "headers": {
+            "Content-Type": "application/octet-stream",
+            "Content-Encoding": ["gzip", "br"]
+        }
+    },
+    {
+        "match": "**/*.js.unityweb",
+        "headers": {
+            "Content-Type": "application/javascript",
+            "Content-Encoding": ["gzip", "br"]
+        }
+    },
+    {
+        "match": "**/*.wasm.unityweb",
+        "headers": {
+            "Content-Type": "application/wasm",
+            "Content-Encoding": ["gzip", "br"]
+        }
+    },
+    {
+        "match": "**/*.data.gz",
+        "headers": {
+            "Content-Type": "application/octet-stream",
+            "Content-Encoding": "gzip"
+        }
+    },
+    {
+        "match": "**/*.js.gz",
+        "headers": {
+            "Content-Type": "application/javascript",
+            "Content-Encoding": "gzip"
+        }
+    },
+    {
+        "match": "**/*.wasm.gz",
+        "headers": {
+            "Content-Type": "application/wasm",
+            "Content-Encoding": "gzip"
+        }
+    },
+    {
+        "match": "**/*.data.br",
+        "headers": {
+            "Content-Type": "application/octet-stream",
+            "Content-Encoding": "br"
+        }
+    },
+    {
+        "match": "**/*.js.br",
+        "headers": {
+            "Content-Type": "application/javascript",
+            "Content-Encoding": "br"
+        }
+    },
+    {
+        "match": "**/*.wasm.br",
+        "headers": {
+            "Content-Type": "application/wasm",
+            "Content-Encoding": "br"
+        }
     }
-  },
-  {
-      "match": "**/*.framework.js.unityweb",
-      "headers": {
-          "Content-Type": "application/javascript",
-          "Content-Encoding": ["gzip", "br"]
-      }
-  },
-  {
-      "match": "**/*.loader.js",
-      "headers": {
-          "Content-Type": "application/javascript"
-      }
-  },
-  {
-      "match": "**/*.wasm.unityweb",
-      "headers": {
-          "Content-Type": "application/wasm",
-          "Content-Encoding": ["gzip", "br"]
-      }
-  }
 ]
