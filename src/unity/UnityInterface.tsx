@@ -1,13 +1,15 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import Unity, { IUnityConfig, UnityContext } from "react-unity-webgl";
 import AddUnityFunctions from "./UnityFunctions";
+import unityBuildInfo from './UnityBuildInfo.json';
 
+const { buildName, compressionExt } = unityBuildInfo;
 
 const defaultUnityContext = new UnityContext({
-	loaderUrl: "Build/unity_build.loader.js",
-	dataUrl: "Build/unity_build.data.gz",
-	frameworkUrl: "Build/unity_build.framework.js.gz",
-	codeUrl: "Build/unity_build.wasm.gz",
+	loaderUrl: `Build/${buildName}.loader.js`,
+	dataUrl: `Build/${buildName}.data${compressionExt}`,
+	frameworkUrl: `Build/${buildName}.framework.js${compressionExt}`,
+	codeUrl: `Build/${buildName}.wasm${compressionExt}`,
 	streamingAssetsUrl: "StreamingAssets",
 	companyName: "Exeuδ",
 	productName: "ExeuδVR Template",

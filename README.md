@@ -36,13 +36,8 @@ dfx start --clean --background # Run dfx in the background
 ```
 
 <img src="https://github.com/user-attachments/assets/e490610d-8660-4136-af74-855ecb8a2c9d" align="right" width="400px"/>
-Add the Unity build:
-    
-  - Make sure the Unity build is called `unity_build`. \
-    If another name is used, update `UnityInterface.tsx`.
-    
-  - Copy the files from the 'Build' folder into `src/assets/build`.
 
+Copy the files from the 'Build' folder into `src/assets/build`.
 
 Enter the following commands, which reference NPM scripts:
 

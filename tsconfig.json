@@ -26,6 +26,7 @@
   },
   "include": [
     "src", 
+    "src/unity/UnityBuildInfo.json",
     "exeudvr-env.d.ts"
   ],
   "exclude": [

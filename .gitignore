@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 ts-out
-*.tsbuildinfo
+tsconfig.tsbuildinfo
 target
 package-lock.json
 Cargo.lock
@@ -45,9 +45,4 @@ canister_ids.json
 .env.production
 
 # Build files (to be added from Unity)
-src/assets/Build/unity_build.data
-src/assets/Build/unity_build.framework.js
-src/assets/Build/unity_build.wasm
-**/*.unityweb
-**/*.gz
-**/*.br
+src/assets/Build/*

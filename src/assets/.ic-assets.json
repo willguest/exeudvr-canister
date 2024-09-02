@@ -6,27 +6,6 @@
         }
     },
     {
-        "match": "**/*.data.unityweb",
-        "headers": {
-            "Content-Type": "application/octet-stream",
-            "Content-Encoding": ["gzip", "br"]
-        }
-    },
-    {
-        "match": "**/*.js.unityweb",
-        "headers": {
-            "Content-Type": "application/javascript",
-            "Content-Encoding": ["gzip", "br"]
-        }
-    },
-    {
-        "match": "**/*.wasm.unityweb",
-        "headers": {
-            "Content-Type": "application/wasm",
-            "Content-Encoding": ["gzip", "br"]
-        }
-    },
-    {
         "match": "**/*.data.gz",
         "headers": {
             "Content-Type": "application/octet-stream",
