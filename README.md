@@ -24,7 +24,7 @@ This repo also uses Internet Identity, a WebAuthn solution configured for the In
 
 ## 📦 Creating a New Project
 
-Make sure that [Node.js](https://nodejs.org/en/) `>= 20` and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.14` are installed on your system.
+Make sure that [Node.js](https://nodejs.org/en/) `>= 20` and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.21` are installed on your system.
 
 Beginning with a new, empty project directory:
 
