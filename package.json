@@ -22,6 +22,7 @@
     "start": "run-p backend frontend",
     "backend": "mo-dev --generate --deploy -y",
     "frontend": "webpack serve --mode development --env development",
+    "poststart": "pkill -f 'bash src/scripts/unity.sh'",
     "test": "run-s test:backend",
     "test:backend": "mo-test",
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\" \"backend/**/*.mo\"",
