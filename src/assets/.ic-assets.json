@@ -13,7 +13,7 @@
             "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
             "X-Content-Type-Options": "nosniff",
             "X-XSS-Protection": "1; mode=block",
-            "Permissions-Policy": "accelerometer=(self), ambient-light-sensor=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(self), keyboard-map=(), magnetometer=(self), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(self), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(self), clipboard-read=*, clipboard-write=*, gamepad=*, speaker-selection=*"
+            "Permissions-Policy": "accelerometer=(self), ambient-light-sensor=(self), autoplay=(self), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(), gyroscope=(self), keyboard-map=(), magnetometer=(self), microphone=(self), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(self), clipboard-read=(), clipboard-write=(), gamepad=(self), speaker-selection=(), conversion-measurement=(), focus-without-user-activation=(), hid=(), idle-detection=(), interest-cohort=(), serial=(), sync-script=(), trust-token-redemption=(), unload=(), window-placement=(), vertical-scroll=()"
         }
     },
     {
