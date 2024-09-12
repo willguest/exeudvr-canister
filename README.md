@@ -1,10 +1,12 @@
-# Ex*euδ* VR Canister Template
+# Ex*euδ*VR Canister Template
 This is a template for deploying immersive experiences on the Internet Computer, configured for use with the [ExeuδVR Unity toolkit](https://github.com/Exeud/ExeudVR).
 
 
 ## 🔰 Overview
 
 This project connects Unity's C# functionality (user interaction) to TypeScript interfaces and functions, enabling authentication and message signing from Unity to the Internet Computer. This project aims to be widely compatible, facilitating many flavours of immersive experience on the Internet Computer. It is built with:
+
+<img src="https://github.com/user-attachments/assets/38e83f6a-06e8-4649-96b5-19fc20090ad9" align="right" width="429px" height="110px"/>
 
 - TypeScript everywhere, but with JavaScript compatibility.
 - Node.js: Easily add JavaScript packages to extend functionality.
@@ -28,37 +30,45 @@ This repo uses Internet Identity, a WebAuthn solution configured for the Interne
 
 ## 📦 Creating a New Project
 
-If necessary, install [Node.js](https://nodejs.org/en/) v20.X and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) v0.21.0.
+<img src="https://github.com/user-attachments/assets/fd48e1ff-a0d6-4fef-beac-d2188b856bda" align="right" width="400px" height="261px"/>
+
+:zero: If necessary, install [Node.js](https://nodejs.org/en/) v20.X and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) v0.21.0.
 ```sh
 nvm install 20
+```
+```sh
 dfxvm install 0.21.0
 ```
 
-From a new, empty project folder, import this template.
+:one: From a new, empty project folder, import this template.
 ```sh
 npx degit Exeud/exeudvr-canister
 ```
 
+:two: Open this folder in your favourite code editor and, if using Windows, connect to WSL.
+
 <img src="https://github.com/user-attachments/assets/e490610d-8660-4136-af74-855ecb8a2c9d" align="right" width="400px"/>
 
-Open this folder in your favourite code editor and, if using Windows, connect to WSL.
+:three: Copy the files from the 'Build' folder of your Unity project to `src/assets/build`.
 
-Copy the files from the 'Build' folder of your Unity project to `src/assets/build`.
-
-Run the following NPM scripts, from either the panel in the sidebar or the command line:
+:four: Run the following NPM scripts, from either the panel in the sidebar or the command line:
 ```sh
 npm run setup # Install packages and create canisters.
 npm run build # Compile ts files and build the webpack.
 npm run start # Deploy canisters locally.
 ```
 
-You can then open a new browser window at the location prompted by the terminal.
+<img src="https://github.com/user-attachments/assets/d692c716-8c56-459c-8cee-0550c4ac1eed" align="right" width="400px" height="80px"/>
+
+✔️ You can then open a new browser window at the location prompted by the terminal. The default is [bkyz2-fma...](http://127.0.0.1:4943/?canisterId=bkyz2-fmaaa-aaaaa-qaaaq-cai)
 ```
 http://127.0.0.1:4943/?canisterId=<local-canister-id>
 ```
 
+
 When ready, run `dfx deploy --network ic` to deploy your experience to the Internet Computer.
 
+<img src="https://github.com/user-attachments/assets/f1ab1184-3b6d-4c4e-b7e1-538ffe58f316" align="right" width="400px" height="300px"/>
 
 ## 🛠️ Technology Stack
 
