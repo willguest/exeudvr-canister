@@ -76,9 +76,19 @@ module.exports = {
   // tutorial, uncomment the following lines:
   module: {
     rules: [
-    { test: /\.(ts|tsx|jsx)$/, exclude: [/node_modules/], loader: "ts-loader" },
-    { test: /\.(css|scss)$/, use: ['style-loader','css-loader'] },
-    { test: /\.(png|jpg|jpeg|gif)$/i, type: "asset/resource", }
+    { 
+      test: /\.(ts|tsx|jsx)$/, 
+      exclude: [/node_modules/], 
+      loader: "ts-loader" 
+    },
+    { 
+      test: /\.(css|scss)$/, 
+      use: ['style-loader','css-loader'] 
+    },
+    { 
+      test: /\.(png|jpg|jpeg|gif)$/i, 
+      type: "asset/resource", 
+    }
     ],
   },
   plugins: [
