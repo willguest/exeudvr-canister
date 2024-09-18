@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -26,11 +26,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install dfx
-      run: |
-        echo y | bash -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
+      uses: dfinity/setup-dfx@main
+      with: 
+        dfx-version: "0.21.0"
+    - name: Confirm successful installation
+      run: dfx --version
     - name: Start dfx
-      run: |
-        dfx cache install
-        dfx start --background
+      run: dfx +0.21.0 start --clean --background
     - run: npm run setup
     - run: npm test

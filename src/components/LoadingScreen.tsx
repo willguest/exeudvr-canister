@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import img from "./../assets/Build/unity_build.jpg";
-//import UnityBuildSize from "../../dist/unity/UnityBuildSize.json";
+import UnityBuildInfo from "../unity/UnityBuildInfo.json";
+
+const { buildName, dataSize, wasmSize } = UnityBuildInfo;
 
 // palette:  
 // https://coolors.co/702781-bc227a-1ea8e1-f28e31-000000
@@ -32,25 +33,31 @@ const StyledImage = styled.img`
 
 const startTime = Date.now();
 
+
+const totalSize = parseInt(dataSize) + parseInt(wasmSize);
+const loadSize = (Math.round((totalSize / 1048576) * 100) / 100);
+const downloadSpeed = 1.5;
+const estimatedLoadingTime = (Math.round((loadSize / downloadSpeed) * 100) / 100);
+console.log("Loading " + loadSize + "MB, ETA " + estimatedLoadingTime + "s");
+
 const LoadingScreen: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(5); 
+  const [img, setImg] = useState<string | null>(null);
 
-  // Read file size - to be updated once proper testing is done...
-  //const totalSize = parseInt(UnityBuildSize['unity_build.data']) + parseInt(UnityBuildSize['unity_build.wasm']);
-  const loadSize = (Math.round((35000000 / 1048576) * 100) / 100);
+  useEffect(() => {
+    const loadImage = async () => {
+      const importedImg = await import(`./../assets/Build/${buildName}.jpg`);
+      setImg(importedImg.default);
+    };
+    loadImage();
+  }, []);
 
-  // Guess download speed, in MB/s
   // TODO: detect internet speed
-  const downloadSpeed = 1.5;
   
   useEffect(() => { 
 
-        // Calculate estimated loading time in seconds
-        const estimatedLoadingTime = (Math.round((loadSize / downloadSpeed) * 100) / 100);
-
         // Simulate progress
-        
         let progTick = Date.now();
 
         const progressInterval = setInterval(() => {
@@ -77,9 +84,9 @@ const LoadingScreen: React.FC = () => {
     return (
       <Fragment>    
         <StyledBanner 
-          duration={duration} 
+          duration={estimatedLoadingTime} 
           progress={progress}/>
-        <StyledImage src={img} alt="island collective"/>
+        <StyledImage src={img} alt="ExeuδVR"/>
         </Fragment>
     );
 };
