@@ -30,7 +30,6 @@ jobs:
         echo y | bash -ci "$(dfxvm install 0.21.0)"
     - name: Start dfx
       run: |
-        dfx cache install
-        dfx start --background
+        dfx +0.21.0 start --clean --background
     - run: npm run setup
     - run: npm test
