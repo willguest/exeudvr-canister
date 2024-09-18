@@ -27,7 +27,7 @@ jobs:
         cache: 'npm'
     - name: Install dfx
       run: |
-        echo y | bash -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
+        echo y | bash -ci "$(dfxvm install 0.21.0)"
     - name: Start dfx
       run: |
         dfx cache install
