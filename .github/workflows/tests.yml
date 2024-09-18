@@ -27,6 +27,8 @@ jobs:
         cache: 'npm'
     - name: Install dfx
       uses: dfinity/setup-dfx@main
+      with: 
+        dfx-version: "0.21.0"
     - name: Confirm successful installation
       run: dfx --version
     - name: Start dfx
