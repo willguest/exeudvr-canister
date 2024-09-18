@@ -31,11 +31,13 @@ Cargo.lock
 *.sw?
 
 # Canisters
+deps/
 /src/declarations
 canister_ids.json
 .dfx
 .vessel
 .mops
+
 
 # Environment variables
 .env
