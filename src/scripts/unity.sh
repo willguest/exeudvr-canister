@@ -17,16 +17,12 @@ check_files() {
 process_files() {
     buildName=$(ls src/assets/Build/*.loader.js | sed 's/.*\/\(.*\)\.loader\.js/\1/')
 
-    # Check compression format
-    if [ -f "src/assets/Build/${buildName}.framework.js.gz" ]; then
-        compressionExt=".gz"
-    elif [ -f "src/assets/Build/${buildName}.framework.js.br" ]; then
-        compressionExt=".br"
-    elif [ -f "src/assets/Build/${buildName}.framework.js.unityweb" ]; then
-        echo "ERROR: Decompression fallback is not supported. Please disable this option in Unity's player settings and rebuild." | tee -a src/unity/unity_watch.log
-        exit 1
-    else
-        compressionExt=""
+    baseString="src/assets/Build/${buildName}.framework.js"
+    compressionExt=$(ls ${baseString}* 2>/dev/null | sed 's/.*\.framework\.js//g')
+
+    if [ "$compressionExt" = ".unityweb" ]; then
+      echo "ERROR: Decompression fallback is not supported. Please disable this option in Unity's player settings and rebuild." | tee -a src/unity/unity_watch.log
+      exit 1
     fi
 
     # Get build size
@@ -55,9 +51,14 @@ process_files() {
     echo "$json" > src/unity/UnityBuildInfo.json
 }
 
+if pgrep inotifywait > /dev/null; then
+    echo "Terminating existing watch process."
+    pkill inotifywait
+fi
+
 watch_and_run() {
-  while true; do
-    inotifywait -e modify,create,delete src/assets/Build/
+  inotifywait -m -e modify,create,delete src/assets/Build/ |
+  while read -r directory events filename; do
     sleep 3
     process_files
   done

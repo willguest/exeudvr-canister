@@ -1,11 +1,14 @@
 import { Identity, HttpAgent } from "@dfinity/agent";
 import { useAuth } from "../auth/auth";
 import { createTokenActor } from "../token/index";
+import unityBuildInfo from './UnityBuildInfo.json';
+
+const { buildName, compressionExt } = unityBuildInfo;
 
 // attempting to identify the size of the unity build
 const buildSize = async () => {
-	const dataFile = '../src/assets/Build/unity_build.data';
-	const wasmFile = '../assets/Build/unity_build.wasm';
+	const dataFile = `../src/assets/Build/${buildName}.data${compressionExt}`;
+	const wasmFile = `../assets/Build/${buildName}.wasm${compressionExt}`;
 
 	const file1 = await fetch(dataFile, { method: 'HEAD' });
 	const file2 = await fetch(wasmFile, { method: 'HEAD' });
