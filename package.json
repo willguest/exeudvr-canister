@@ -4,7 +4,6 @@
   "version": "0.2.0",
   "description": "Open VR on the Internet Computer",
   "scripts": {
-
     "check-dfx": "node src/scripts/check-dfx.js",
     "presetup": "sudo apt-get update && sudo apt-get install -y inotify-tools jq && npm run check-dfx",
     "setup": "npm i && dfx deps pull && dfx canister create backend && dfx generate backend && dfx canister create frontend",
@@ -18,13 +17,6 @@
     "test": "npm run test:backend && npm run test:frontend",
     "test:backend": "",
     "test:frontend": "",
-    "build": "webpack",
-    "start": "run-p backend frontend",
-    "backend": "mo-dev --generate --deploy -y",
-    "frontend": "webpack serve --mode development --env development",
-    "poststart": "pkill -f 'bash src/scripts/unity.sh'",
-    "test": "run-s test:backend",
-    "test:backend": "mo-test",
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\" \"backend/**/*.mo\"",
     "sources": "mops sources",
     "postinstall": "mops install"
