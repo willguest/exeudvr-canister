@@ -32,12 +32,12 @@ This repo uses Internet Identity, a WebAuthn solution configured for the Interne
 
 <img src="https://github.com/user-attachments/assets/fd48e1ff-a0d6-4fef-beac-d2188b856bda" align="right" width="400px" height="261px"/>
 
-:zero: If necessary, install [Node.js](https://nodejs.org/en/) v20.X and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) v0.21.0.
+:zero: If necessary, install [Node.js](https://nodejs.org/en/) v20.X and [dfx](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) v0.22.0.
 ```sh
 nvm install 20
 ```
 ```sh
-dfxvm install 0.21.0
+dfxvm install 0.22.0
 ```
 
 :one: From a new, empty project folder, import this template.
