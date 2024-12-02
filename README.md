@@ -65,42 +65,9 @@ npm run start # Deploy canisters locally.
 http://127.0.0.1:4943/?canisterId=<local-canister-id>
 ```
 
-
 When ready, run `dfx deploy --network ic` to deploy your experience to the Internet Computer.
 
 <img src="https://github.com/user-attachments/assets/f1ab1184-3b6d-4c4e-b7e1-538ffe58f316" align="right" width="400px" height="300px"/>
-
-## 🛠️ Technology Stack
-
-- [ExeudVR](https://github.com/Exeud/ExeudVR): Interactive, immersive Unity toolkit.
-- [React](https://reactjs.org/): a component-based UI library
-- [TypeScript](https://www.typescriptlang.org/): JavaScript extended with syntax for types
-=======
-# Vite + React + Motoko
-
-### Get started directly in your browser:
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rvanasa/vite-react-motoko)
-
-This template gives you everything you need to build a full-stack Web3 application on the [Internet Computer](https://internetcomputer.org/).
-
-For an example of a real-world dapp built using this starter project, check out the [source code](https://github.com/dfinity/feedback) for DFINITY's [Developer Experience Feedback Board](https://dx.internetcomputer.org/).
-
-## 📦 Create a New Project
-
-Make sure that [Node.js](https://nodejs.org/en/) `>= 16` and [`dfx`](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.14` are installed on your system.
-
-Run the following commands in a new, empty project directory:
-
-```sh
-npx degit rvanasa/vite-react-motoko # Download this starter project
-dfx start --clean --background # Run dfx in the background
-npm run setup # Install packages, deploy canisters, and generate type bindings
-
-npm start # Start the development server
-```
-
-When ready, run `dfx deploy --network ic` to deploy your application to the Internet Computer.
 
 ## 🛠️ Technology Stack
 
@@ -133,6 +100,6 @@ When ready, run `dfx deploy --network ic` to deploy your application to the Inte
 
 ## 🙏 Acknowledgements
 
-Thanks to [DFINTY](https://github.com/dfinity) for building out the Internet Computer.
+Thanks to [DFINTY Foundation](https://github.com/dfinity) for building out the Internet Computer.
 
 Thanks to [Ryan Vandersmith](https://github.com/rvanasa) for the original [vite-react-motoko](https://github.com/rvanasa/vite-react-motoko) template, on which this is based.
